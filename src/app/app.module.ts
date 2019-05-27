@@ -24,7 +24,7 @@ import { WalletComponent } from './component/wallet/wallet.component';
     ForexComponent,
     AccountComponent,
     TransactionComponent,
-    WalletComponent
+    WalletComponent,
   ],
   imports: [
     BrowserModule,
