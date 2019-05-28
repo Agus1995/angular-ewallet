@@ -12,19 +12,31 @@ import { ForexComponent } from './component/forex/forex.component';
 import { AccountComponent } from './component/account/account.component';
 import { TransactionComponent } from './component/transaction/transaction.component';
 import { WalletComponent } from './component/wallet/wallet.component';
+import { ServiceComponent } from './home/service/service.component';
+import { ProgramsComponent } from './home/programs/programs.component';
+import { AboutComponent } from './home/about/about.component';
+import { TeamComponent } from './home/team/team.component';
+import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
+import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    //NavbarComponent,
     SidebarComponent,
-    LoginComponent,
-    RegisterComponent,
-    HomeComponent,
-    ForexComponent,
-    AccountComponent,
-    TransactionComponent,
-    WalletComponent,
+    // LoginComponent,
+    // RegisterComponent,
+    // HomeComponent,
+    // ForexComponent,
+    // AccountComponent,
+    // TransactionComponent,
+    // WalletComponent,
+    // ServiceComponent,
+    // ProgramsComponent,
+    // AboutComponent,
+    // TeamComponent,
+    // NavbarHomeComponent,
+    // FooterHomeComponent,
   ],
   imports: [
     BrowserModule,
