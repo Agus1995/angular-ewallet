@@ -18,12 +18,14 @@ import { AboutComponent } from './home/about/about.component';
 import { TeamComponent } from './home/team/team.component';
 import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
+import { ChartExComponent } from './component/chart-ex/chart-ex.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // NavbarComponent,
-    // SidebarComponent,
+    //NavbarComponent,
+    SidebarComponent,
+    ChartExComponent,
     // LoginComponent,
     // RegisterComponent,
     // HomeComponent,
