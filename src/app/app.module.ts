@@ -22,8 +22,8 @@ import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    //NavbarComponent,
-    SidebarComponent,
+    // NavbarComponent,
+    // SidebarComponent,
     // LoginComponent,
     // RegisterComponent,
     // HomeComponent,
