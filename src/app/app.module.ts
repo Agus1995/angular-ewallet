@@ -19,30 +19,21 @@ import { TeamComponent } from './home/team/team.component';
 import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { ChartExComponent } from './component/chart-ex/chart-ex.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    //NavbarComponent,
     SidebarComponent,
     ChartExComponent,
-    // LoginComponent,
-    // RegisterComponent,
-    // HomeComponent,
-    // ForexComponent,
-    // AccountComponent,
-    // TransactionComponent,
-    // WalletComponent,
-    // ServiceComponent,
-    // ProgramsComponent,
-    // AboutComponent,
-    // TeamComponent,
-    // NavbarHomeComponent,
-    // FooterHomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

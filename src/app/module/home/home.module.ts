@@ -10,9 +10,10 @@ import { AboutComponent } from 'src/app/home/about/about.component';
 import { TeamComponent } from 'src/app/home/team/team.component';
 import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 import { FooterHomeComponent } from 'src/app/home/footer-home/footer-home.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from 'src/app/home/home.component';
 import { NavbarHomeComponent } from 'src/app/home/navbar-home/navbar-home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,13 +26,13 @@ import { NavbarHomeComponent } from 'src/app/home/navbar-home/navbar-home.compon
     AboutComponent,
     TeamComponent,
     NavbarComponent,
-    FooterHomeComponent,
-    
+    FooterHomeComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    FormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class HomeModule { }

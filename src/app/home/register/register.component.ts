@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterComponent implements OnInit {
 
   constructor() { }
-
+  formRegister: FormGroup;
   ngOnInit() {
   }
 
