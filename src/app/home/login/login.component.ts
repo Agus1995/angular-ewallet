@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/service/login.service';
+import { AuthService } from 'src/app/service/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Customer } from 'src/app/model/customer';
+import { CommonResponse } from 'src/app/security/commonResponse';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +16,9 @@ formLogin : FormGroup;
 cus: Customer=new Customer();
 
 
-  constructor(private service: LoginService, private fb: FormBuilder) { }
+  constructor(private router: Router, private service: AuthService, private fb: FormBuilder) { }
 
+  selectedRole: string;
   ngOnInit() {
     this.formLogin = this.fb.group(
       {
@@ -25,14 +28,15 @@ cus: Customer=new Customer();
     )
   }
 
-async login(){
-  console.log('masukkk');
-  this.cus.username = this.formLogin.controls.username.value; 
-  this.cus.password = this.formLogin.controls.password.value;
-  await this.service.login(this.cus).toPromise();
-  console.log(this.cus.username);
+  async login(){
+    this.cus.username = this.formLogin.controls.username.value; 
+    this.cus.password = this.formLogin.controls.password.value;
+    const response = await this.service.login(this.cus).toPromise();
+    localStorage.setItem('cif', response.data.cif);
+  }
+
 }
 
 
   
-}
+
