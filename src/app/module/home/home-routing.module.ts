@@ -12,16 +12,7 @@ import { FooterHomeComponent } from 'src/app/home/footer-home/footer-home.compon
 import {CommonModule} from '@angular/common';
 
 const homeRoutes: Routes = [
-  {path: "", component: HomeComponent},
-  {path:"login", component: LoginComponent},
-  {path:"register", component: RegisterComponent},
-  {path:"about", component: AboutComponent},
-  {path:"service", component: ServiceComponent},
-  {path:"programs", component: ProgramsComponent},
-  {path:"team", component: TeamComponent},
-  {path:"navbarHome", component: NavbarHomeComponent},
-  {path:"footerHome", component: FooterHomeComponent} 
-];
+]; 
 
 @NgModule({
   declarations: [],

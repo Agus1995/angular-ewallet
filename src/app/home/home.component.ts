@@ -16,6 +16,6 @@ export class HomeComponent implements OnInit {
   }
 
   loginClick(){
-    this.router.navigate(['home/login'])
+    this.router.navigate(['/login'])
   }
 }

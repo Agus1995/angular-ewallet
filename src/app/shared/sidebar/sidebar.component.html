@@ -1,79 +1,49 @@
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<header class="header">
-  <nav class="navbar  navbar-toggleable-md navbar-dark bg-warning">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-      data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand p-0 mr-5" href="#"><img src="http://via.placeholder.com/61x14"></a>
-    <div class="float-left"> <a href="#" class="button-left"><span class="fa fa-fw fa-bars "></span></a> </div>
-    <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown messages-menu">
+<link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet">
 
+<div class="nav-side-menu">
+  <div class="brand">Brand Logo</div>
+  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
-        <li class="nav-item dropdown  user-menu">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="http://via.placeholder.com/160x160" class="user-image" alt="User Image">
-            <span class="hidden-xs">Logout</span>
-          </a>
-          <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div> -->
-        </li>
+  <div class="menu-list">
 
+    <ul id="menu-content" class="menu-content collapse out">
+
+      <li routerLink="/customer/profile">
+        <a>
+          <i class="fas fa-user-tie fa-lg"></i>Profile
+        </a>
+      </li>
+
+      <li routerLink="/account">
+        <a>
+          <i class="fas fa-user-tie fa-lg"></i> Account
+        </a>
+      </li>
+
+      <li routerLink="/wallet">
+        <a><i class="fa fa-users fa-lg"></i> Wallet</a>
+      </li>
+      <li data-toggle="collapse" data-target="#products" class="collapsed">
+        <a><i class="fab fa-studiovinari fa-lg"></i> Transaction <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="products">
+        <li routerLink="/transaction/topup"><a>Top-Up Account</a></li>
+        <li routerLink="/transaction/transfer"><a>Transfer</a></li>
+        <li routerLink="/transaction"><a>History</a></li>
       </ul>
-    </div>
-  </nav>
-</header>
-
-            <div class="main">
-              <aside>
-                <div class="sidebar left ">
-                  <div class="user-panel">
-                    <div class="pull-left image">
-                      <img src="http://via.placeholder.com/160x160" class="rounded-circle" alt="User Image">
-                    </div>
-                    <div class="pull-left info">
-                      <p>Profile</p>
-                    </div>
-                  </div>
-
-                  <ul class="list-sidebar bg-defoult">
-
-                    <li> <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Account</span></a> </li>
-
-                    <li> <a href="#" data-toggle="collapse" data-target="#products" class="collapsed active"> <i
-                          class="fa fa-shopping-cart"></i> <span class="nav-label">Transaction</span> <span
-                          class="fa fa-chevron-left pull-right"></span> </a>
-                      <ul class="sub-menu collapse" id="products">
-                        <li class="active"><a href="#">Transfer</a></li>
-                        <li><a href="#">Top Up</a></li>
-                      </ul>
-                    </li>
-
-                    <li> <a href="#" data-toggle="collapse" data-target="#dashboard" class="collapsed active"> <i
-                          class="fa fa-bar-chart-o"></i> <span class="nav-label"> Forex Trading </span> <span
-                          class="fa fa-chevron-left pull-right"></span> </a>
-                      <ul class="sub-menu collapse" id="dashboard">
-                        <li class="active"><a href="#">Sell/Buy Dollar</a></li>
-                        <li><a href="#">Show Statistic</a></li>
-                      </ul>
-                    </li>
-
-                    <li> <a href="#"><i class="fa fa-credit-card"></i> <span class="nav-label">Wallet</span></a> </li>
-
-
-                  </ul>
-                </div>
-              </aside>
-            </div>
-
-
+      <li data-toggle="collapse" data-target="#new" class="collapsed">
+        <a><i class="fab fa-pagelines fa-lg"></i> Forex Trading <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="new">
+        <li routerLink="buyClick()"><a></a>Buy Dolars</li>
+        <li routerLink="sellClick()"><a></a>Sell Dolars</li>
+        <li routerLink="/forex"><a></a>Charts</li>
+      </ul>
+    </ul>
+  </div>
+</div>
