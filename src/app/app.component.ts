@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   constructor(){}
-  id = localStorage.getItem('id');
+  id = localStorage.getItem('cif');
   home = false;
 
   ngOnInit(): void {

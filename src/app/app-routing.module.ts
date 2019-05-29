@@ -10,13 +10,15 @@ import { TeamComponent } from './home/team/team.component';
 import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { HomeComponent } from './home/home.component';
+import {AuthenticationGuardService} from './security/authentication-guard.service';
 
 const routes: Routes = [
-  {path: "", redirectTo:"home",pathMatch:"full"},
-  {path:"account", loadChildren: './module/account/account.module#AccountModule'},
-  {path:'wallet', loadChildren: './module/wallet/wallet.module#WalletModule'},
-  {path:"forex", loadChildren: './module/forex/forex.module#ForexModule'},
-  {path:"transaction", loadChildren: './module/transaction/transaction.module#TransactionModule'},
+  {path: "", redirectTo:"customer/profile",pathMatch:"full"},
+  {path:"account", loadChildren: './module/account/account.module#AccountModule', canActivate: [AuthenticationGuardService]},
+  {path:'wallet', loadChildren: './module/wallet/wallet.module#WalletModule', canActivate: [AuthenticationGuardService]},
+  {path:"forex", loadChildren: './module/forex/forex.module#ForexModule', canActivate: [AuthenticationGuardService]},
+  {path:"transaction", loadChildren: './module/transaction/transaction.module#TransactionModule', canActivate: [AuthenticationGuardService]},
+  {path:"customer", loadChildren: './module/customer/customer.module#CustomerModule', canActivate: [AuthenticationGuardService]},
 
   {path:"home", component: HomeComponent},
   {path:"login", component: LoginComponent},

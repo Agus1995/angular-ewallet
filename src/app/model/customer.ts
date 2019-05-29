@@ -6,7 +6,10 @@ export class Customer {
     nik: string;
     mothersName: string;
     address: string;
-    phoneNumber: string;
+    phone: string;
     username: string;
     password: string;
+    npwp: string;
+    creatAt: Date;
+    email: string;
 }
