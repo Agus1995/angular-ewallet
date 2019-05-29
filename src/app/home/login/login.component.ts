@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     if (response.responsecode != 1) {
       alert(response.responsemessage)
     } else {
-      this.router.navigate(['/account']);
+      this.router.navigate(['/customer/profile']);
       localStorage.setItem('cif', response.data.cif);
     }
 

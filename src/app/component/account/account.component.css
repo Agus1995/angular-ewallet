@@ -1,9 +1,6 @@
 
 
-/* .form-control{
-    justify-content: center;
-} */
-
-.col-form-label{
-    justify-content: center;
+.modal-title2{
+    align-items:"center";
+    justify-content: "center";
 }
