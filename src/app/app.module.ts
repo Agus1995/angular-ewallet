@@ -23,22 +23,23 @@ import { ChartExComponent } from './component/chart-ex/chart-ex.component';
 @NgModule({
   declarations: [
     AppComponent,
-    //NavbarComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    AboutComponent,
+    ServiceComponent,
+    ProgramsComponent,
+    TeamComponent,
+    NavbarHomeComponent,
+    FooterHomeComponent,
+    
     SidebarComponent,
+    NavbarComponent,
+    
     ChartExComponent,
-    // LoginComponent,
-    // RegisterComponent,
-    // HomeComponent,
-    // ForexComponent,
-    // AccountComponent,
-    // TransactionComponent,
-    // WalletComponent,
-    // ServiceComponent,
-    // ProgramsComponent,
-    // AboutComponent,
-    // TeamComponent,
-    // NavbarHomeComponent,
-    // FooterHomeComponent,
+    
+    
+
   ],
   imports: [
     BrowserModule,

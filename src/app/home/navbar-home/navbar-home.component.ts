@@ -11,25 +11,25 @@ export class NavbarHomeComponent implements OnInit {
   constructor(
     private router: Router
   ) { }
-
+  
   ngOnInit() {
   } 
   homeClick(){
     this.router.navigate(['/home']);
   }
   serviceClick(){
-    this.router.navigate(['/home/service']);
+    this.router.navigate(['/service']);
   }
   programsClick(){
-    this.router.navigate(['/home/programs']);
+    this.router.navigate(['/programs']);
   }
   aboutClick(){
-    this.router.navigate(['home/about']);
+    this.router.navigate(['/about']);
   }
   teamClick(){
-    this.router.navigate(['home/team']);
+    this.router.navigate(['/team']);
   }
   registerClick(){
-    this.router.navigate(['home/register']);
+    this.router.navigate(['/register']);
   }
 }

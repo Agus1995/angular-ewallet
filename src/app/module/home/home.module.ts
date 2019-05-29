@@ -16,16 +16,6 @@ import { NavbarHomeComponent } from 'src/app/home/navbar-home/navbar-home.compon
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    NavbarHomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    ServiceComponent,
-    ProgramsComponent,
-    AboutComponent,
-    TeamComponent,
-    NavbarComponent,
-    FooterHomeComponent,
     
   ],
   imports: [

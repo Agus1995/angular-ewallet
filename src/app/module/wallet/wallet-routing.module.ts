@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WalletComponent } from 'src/app/component/wallet/wallet.component';
 
 const routes: Routes = [
-  {path:"", component: WalletComponent}
+  {path:'', component: WalletComponent}
 ];
 
 @NgModule({
