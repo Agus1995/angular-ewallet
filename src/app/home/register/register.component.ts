@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Customer } from 'src/app/model/customer';
 import { AuthService } from 'src/app/service/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private service: AuthService, private fb: FormBuilder, private router: Router) { }
   formRegister: FormGroup;
-  cus: Customer = new Customer();
+  cus: Customer= new Customer();
 
   ngOnInit() {
     this.formRegister = this.fb.group({
@@ -49,5 +49,7 @@ export class RegisterComponent implements OnInit {
     } else {
       this.router.navigate(['/login']);
     }
+    await this.service.register(this.cus).toPromise();
+  console.log(this.cus.firstName);
   }
 }

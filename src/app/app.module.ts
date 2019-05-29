@@ -17,6 +17,10 @@ import { TeamComponent } from './home/team/team.component';
 import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+<<<<<<< HEAD
+=======
+import { CustomerComponent } from './component/customer/customer.component';
+>>>>>>> f18fc4e4d68553e85bcd89194f66ee234da47f81
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     NavbarComponent,
     
     ChartExComponent,
+    
     
     
 
