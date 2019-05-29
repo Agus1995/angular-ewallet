@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.formRegister = this.fb.group({
       firstName: ['', Validators.required],
-      lastName: ['',Validators.required],
+      lastName: ['', Validators.required],
       birthDate: ['', Validators.required],
       nik: ['', Validators.required],
       mothersName: ['', Validators.required],
@@ -31,18 +31,24 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  async register(){
+  async register() {
     this.cus.firstName = this.formRegister.controls.firstName.value;
     this.cus.lastName = this.formRegister.controls.lastName.value;
     this.cus.birthDate = this.formRegister.controls.birthDate.value;
     this.cus.nik = this.formRegister.controls.nik.value;
     this.cus.mothersName = this.formRegister.controls.mothersName.value;
-    this.cus.address = this.formRegister.controls.address.value; 
+    this.cus.address = this.formRegister.controls.address.value;
     this.cus.phone = this.formRegister.controls.phone.value;
     this.cus.username = this.formRegister.controls.username.value;
     this.cus.password = this.formRegister.controls.password.value;
     this.cus.email = this.formRegister.controls.email.value;
     this.cus.npwp = this.formRegister.controls.npwp.value;
+    const response = await this.service.register(this.cus).toPromise();
+    if (response.responsecode != 1) {
+      alert(response.responsemessage)
+    } else {
+      this.router.navigate(['/login']);
+    }
     await this.service.register(this.cus).toPromise();
   console.log(this.cus.firstName);
   }

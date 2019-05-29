@@ -1,5 +1,5 @@
 export class CommonResponse<T> {
-    status : number;
-    message: string;
+    responsecode : number;
+    responsemessage: string;
     data: T;
 }
