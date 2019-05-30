@@ -18,6 +18,8 @@ import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerComponent } from './component/customer/customer.component';
+import { TopUpComponent } from './component/top-up/top-up.component';
+import { TransferComponent } from './component/transfer/transfer.component';
 
 @NgModule({
   declarations: [
