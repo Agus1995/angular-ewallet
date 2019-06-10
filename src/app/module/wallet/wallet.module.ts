@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { WalletRoutingModule } from './wallet-routing.module';
 import { WalletComponent } from 'src/app/component/wallet/wallet.component';
 import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     WalletRoutingModule,
+    ReactiveFormsModule,
     FormsModule
   ]
 })
