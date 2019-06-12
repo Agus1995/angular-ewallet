@@ -14,6 +14,8 @@ export class AuthService {
   urlLogin = 'http://localhost:9191/login';
   urlRegister = 'http://localhost:9191/register';
 
+ 
+
 login(login: Customer) : Observable<CommonResponse<Customer>>{
   return this.http.post<CommonResponse<Customer>>(this.urlLogin, login);
 }
