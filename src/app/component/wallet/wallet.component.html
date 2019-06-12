@@ -6,43 +6,44 @@
       <div class="row">
         <div class="col-10"></div>
         <!-- <div class="col-1"><button class="btn btn-primary">+ Create Wallet</button></div> -->
-        <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#exampleModal" data-whatever="@mdo">+ Create Wallet</button> 
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <div class="modal-title2">
-                    <h5 class="modal-title" id="exampleModalLabel">Create Wallet</h5>
-                  </div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    
-                  </div>
-                  <div class="modal-body">
-                    <form [formGroup]="formWallet" (ngSubmit)="createWallet()">
-                        <div class="form-group">
-                          <div class="row">
-                                <div class="col-sm-4">
-                                    <label for="recipient-name" class="col-form-label">Wallet Name:</label>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input formControlName="walletName" type="text" class="form-control" id="recipient-name">
-                                </div>
-                          </div>
-                        </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" data-dismiss="modal" class="btn btn-primary"(click)="createWallet()">Create</button>
-                  </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+          data-whatever="@mdo">+ Create Wallet</button>
+        <!-- modal create wallet -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title2">
+                  <h5 class="modal-title" id="exampleModalLabel">Create Wallet</h5>
                 </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="formWallet" (ngSubmit)="createWallet()">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <label for="recipient-name" class="col-form-label">Wallet Name:</label>
+                      </div>
+                      <div class="col-sm-8">
+                        <input formControlName="walletName" type="text" class="form-control" id="recipient-name">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" data-dismiss="modal" class="btn btn-primary"
+                  (click)="createWallet()">Create</button>
               </div>
             </div>
-
-   
-
+          </div>
+        </div>
 
         <div class="col-1"></div>
       </div>
@@ -52,49 +53,91 @@
       <div class="row">
         <div class="col-4">
           <div class="unregistered">
-          <label>Unregistered Wallet</label>
+            <label>Unregistered Wallet</label>
+          </div>
+          <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>Wallet Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let w of wallets">
+                <td>{{w.walletName}}</td>
+                <td><button data-toggle="modal" data-target="#regWall"
+                  data-whatever="@mdo" (click)="getWallId(w)">Register</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-            <table class="table table-striped table-hover">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Wallet Name</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let w of wallets">
-                    <td>{{w.walletName}}</td>
-                    <td><button>Register</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
         <div class="col-8">
-            <div class="unregistered">
-                <label>Registered Wallet</label>
-              </div>
-            <table class="table table-striped table-hover">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Wallet Name</th>
-                    <th>Account Name</th>
-                    <th>Balance</th>
-                    <th>Action</th>
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td><button>Unregister</button></td>
-                  </tr>
-                </tbody>
-              </table>
+          <div class="unregistered">
+            <label>Registered Wallet</label>
+          </div>
+          <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>Wallet Name</th>
+                <th>Account Name</th>
+                <th>Balance</th>
+                <th>Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><button>Unregister</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 
 </div>
+
+<!--  -->
+<!-- modal Add Account/Register wallet -->
+<div class="modal fade" id="regWall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title2">
+        <h5 class="modal-title" id="exampleModalLabel">Create Wallet</h5>
+      </div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="formWallAcc" (ngSubmit)="createWallAcc()">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-4">
+              <label for="recipient-name" class="col-form-label">Select Account:</label>
+            </div>
+            <div class="col-sm-8">
+                <select class="form-control" formControlName="accountNumber">
+                  <option *ngFor="let ac of accounts" [value]="ac.id">{{ac.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" data-dismiss="modal" class="btn btn-primary"
+        (click)="createWallAcc()">Add Account</button>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end -->

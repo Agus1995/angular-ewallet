@@ -4,7 +4,7 @@ import { AccountService } from 'src/app/service/account.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Account } from 'src/app/model/account';
 import { Customer } from 'src/app/model/customer';
-
+ 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -18,7 +18,6 @@ export class AccountComponent implements OnInit {
   cif1: Customer = new Customer();
   accounts: Account[] = [];
   cif = localStorage.getItem('cif');
-
 
   ngOnInit() {
     this.getAccount();

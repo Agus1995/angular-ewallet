@@ -4,6 +4,9 @@ import { WalletService } from 'src/app/service/wallet.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Wallet } from 'src/app/model/wallet';
 import { Customer } from 'src/app/model/customer';
+import { AccountService } from 'src/app/service/account.service';
+import { Account } from 'src/app/model/account';
+import { WalletAcc } from 'src/app/model/wallet-acc';
 
 
 @Component({
@@ -13,18 +16,29 @@ import { Customer } from 'src/app/model/customer';
 })
 export class WalletComponent implements OnInit {
 
-  constructor(private router: Router, private service: WalletService, private fb: FormBuilder ) { }
+  constructor(private router: Router, private service: WalletService, private fb: FormBuilder, private serviceAcc: AccountService ) { }
   cif = localStorage.getItem('cif');
   wallets: Wallet[] = [];
   formWallet: FormGroup;
+  formWallAcc: FormGroup;
   cus: Customer = new Customer();
+  // acc: Account;
+  // wall: Wallet = new Wallet();
+  accounts: Account[] = [];
+  wallAccList: WalletAcc[] = [];
+
 
   ngOnInit() {
     this.getWallet();
+    this.getAccounts();
     this.cus.cif = this.cif
 
     this.formWallet = this.fb.group({
       walletName: ['', Validators.required]
+    })
+
+    this.formWallAcc = this.fb.group({
+      accountNumber: ['', Validators.required]
     })
   }
 
@@ -35,7 +49,23 @@ export class WalletComponent implements OnInit {
     updatedAt: '',
     customer: this.cus
   }
+  // @Input()
+  account: Account = {
+    accountNumber:'',
+    name:'',
+    curencyType:'',
+    balance: 0,
+    createdAt:'',
+    updatedAt:'',
+    customer: this.cus
 
+  }
+
+  wallAcc: WalletAcc = {
+    id: '',
+    accountNumber: this.account,
+    walletId: this.wallet
+  }
   async createWallet(){
     this.wallet.walletName = this.formWallet.controls.walletName.value;
     const response = await this.service.creatWallet(this.wallet).toPromise();
@@ -46,6 +76,23 @@ export class WalletComponent implements OnInit {
       alert("success");
       this.getWallet();
     }
+  }
+
+  async createWallAcc(){
+    this.wallAcc.accountNumber = this.formWallAcc.controls.accountNumber.value;
+    const response = await this.service.addWallAcc(this.wallAcc).toPromise();
+    if(response.responsecode != 1){
+      alert(response.responsemessage)
+    }else{
+      alert("success");
+      this.getWallet();
+    }
+  }
+
+  getWallId(w){
+    // this.wall.walletId = w;
+    console.log(w.walletId);
+    this.wallet.walletId = w.walletId;
   }
 
   async getWallet(){
@@ -61,6 +108,17 @@ export class WalletComponent implements OnInit {
     }
   }
 
-
+  async getAccounts(){
+    if (this.cif == undefined) {
+      this.cif = localStorage.getItem('cif');
+    }
+    const response = await this.serviceAcc.getAccount(this.cif).toPromise();
+    if(response.responsecode != 1){
+      alert(response.responsemessage)
+    } else{
+      console.log(response.data)
+      this.accounts= response.data;
+    }
+  }
 
 }
