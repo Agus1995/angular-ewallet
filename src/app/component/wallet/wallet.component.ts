@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { WalletService } from 'src/app/service/wallet.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -31,6 +31,7 @@ export class WalletComponent implements OnInit {
   ngOnInit() {
     this.getWallet();
     this.getAccounts();
+    this.getWallAc();
     this.cus.cif = this.cif
 
     this.formWallet = this.fb.group({
@@ -38,7 +39,7 @@ export class WalletComponent implements OnInit {
     })
 
     this.formWallAcc = this.fb.group({
-      accountNumber: ['', Validators.required]
+      accNumb: ['', Validators.required]
     })
   }
 
@@ -49,6 +50,7 @@ export class WalletComponent implements OnInit {
     updatedAt: '',
     customer: this.cus
   }
+
   // @Input()
   account: Account = {
     accountNumber:'',
@@ -63,8 +65,8 @@ export class WalletComponent implements OnInit {
 
   wallAcc: WalletAcc = {
     id: '',
-    accountNumber: this.account,
-    walletId: this.wallet
+    account: this.account,
+    wallet: this.wallet
   }
   async createWallet(){
     this.wallet.walletName = this.formWallet.controls.walletName.value;
@@ -79,7 +81,8 @@ export class WalletComponent implements OnInit {
   }
 
   async createWallAcc(){
-    this.wallAcc.accountNumber = this.formWallAcc.controls.accountNumber.value;
+    this.account.accountNumber = this.formWallAcc.controls.accNumb.value;
+    console.log(this.wallAcc);
     const response = await this.service.addWallAcc(this.wallAcc).toPromise();
     if(response.responsecode != 1){
       alert(response.responsemessage)
@@ -118,6 +121,19 @@ export class WalletComponent implements OnInit {
     } else{
       console.log(response.data)
       this.accounts= response.data;
+    }
+  }
+
+  async getWallAc(){
+    if (this.cif == undefined) {
+      this.cif = localStorage.getItem('cif');
+    }
+    const response = await this.service.getWallAcc(this.cif).toPromise();
+    if(response.responsecode != 1){
+      alert(response.responsemessage)
+    } else{
+      console.log(response.data);
+      this.wallAccList = response.data;
     }
   }
 

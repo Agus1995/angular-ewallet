@@ -3,7 +3,7 @@ import { Wallet } from './wallet';
 
 export class WalletAcc {
     id:string;
-    accountNumber:Account;
-    walletId:Wallet;
+    account:Account;
+    wallet:Wallet;
 
 }

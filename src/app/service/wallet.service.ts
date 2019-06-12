@@ -17,6 +17,7 @@ urlcreateWallet = 'http://localhost:9191/wallet';
 urlgetWallet = 'http://localhost:9191/customer/';
 
 urlAddWallAcc = 'http://localhost:9191/wallet-account';
+urlGetWallAcc = 'http://localhost:9191/customer/';
 
 creatWallet(wallet: Wallet) :Observable<CommonResponse<Wallet>>{
   return this.http.post<CommonResponse<Wallet>>(this.urlcreateWallet, wallet);
@@ -30,4 +31,7 @@ getWalllet(cif) : Observable<CommonResponse<Wallet[]>>{
   return this.http.get<CommonResponse<Wallet[]>>(this.urlgetWallet+cif+"/wallets")
 }
 
+getWallAcc(cif) : Observable<CommonResponse<WalletAcc[]>>{
+  return this.http.get<CommonResponse<WalletAcc[]>>(this.urlGetWallAcc+cif+"/wallet-accounts")
+}
 }
