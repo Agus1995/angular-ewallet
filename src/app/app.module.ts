@@ -18,6 +18,7 @@ import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerComponent } from './component/customer/customer.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { CustomerComponent } from './component/customer/customer.component';
     SidebarComponent,
     NavbarComponent,
     
-    ChartExComponent,
+    // ChartExComponent,
     
     
     
@@ -46,7 +47,8 @@ import { CustomerComponent } from './component/customer/customer.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    // ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
