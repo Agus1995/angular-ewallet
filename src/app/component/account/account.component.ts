@@ -44,9 +44,10 @@ export class AccountComponent implements OnInit {
 
   }
 
+
   async createAccount(){
+    this.account.curencyType = this.formAccount.controls.curencyType.value;
     this.account.name = this.formAccount.controls["name"].value;
-    this.account.curencyType = this.formAccount.controls["curencyType"].value;
     console.log(this.account);
     const response = await this.service.createAccount(this.account).toPromise();
     if(response.responsecode != 1){
