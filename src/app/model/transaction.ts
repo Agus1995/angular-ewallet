@@ -2,9 +2,9 @@ import { TransactionType } from './transaction-type';
 
 export class Transaction {
     id : string;
-    date : Date;
-    accDebit : number;
-    accCredit : number;
+    date : string;
+    accDebit : string;
+    accCredit : string;
     amount : number;
-    transactionType : TransactionType;
+    transactionTypeDTO : TransactionType;
 }
