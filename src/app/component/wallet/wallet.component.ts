@@ -55,7 +55,7 @@ export class WalletComponent implements OnInit {
   account: Account = {
     accountNumber:'',
     name:'',
-    curencyType:'',
+    currencyType:'',
     balance: 0,
     createdAt:'',
     updatedAt:'',

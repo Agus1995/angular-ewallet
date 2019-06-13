@@ -4,7 +4,7 @@ export class Account {
     accountNumber: string;
     name: string;
     balance: number;
-    curencyType: string;
+    currencyType: string;
     createdAt: string;
     updatedAt: string;
     customer: Customer;
@@ -13,14 +13,14 @@ export class Account {
         accountNumber: string,
         name: string,
         balance: number,
-        curencyType: string,
+        currencyType: string,
         createdAt: string,
         updatedAt: string,
         customer: Customer
     ) { this.accountNumber = accountNumber;
         this.name = name;
         this.balance = balance;
-        this.curencyType = curencyType;
+        this.currencyType = currencyType;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.customer = customer;

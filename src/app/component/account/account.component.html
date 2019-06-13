@@ -41,8 +41,8 @@
                         </div>
                         <div class="col-sm-8">
                           <select formControlName="curencyType" class="form-control">
-                            <option [value]="IDR">IDR</option>
-                            <option [value]="USD">USD</option>
+                            <option value="IDR">IDR</option>
+                            <option value="USD">USD</option>
                           </select>
                           <!-- <input formControlName="curencyType" type="text" class="form-control"> -->
                         </div>
@@ -75,7 +75,7 @@
           <th>Balance</th>
           <th>Curency Type</th>
         </tr>
-      </thead>
+      </thead> 
 
       <tbody>
         <tr *ngFor="let ac of accounts">

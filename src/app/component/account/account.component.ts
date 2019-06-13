@@ -18,7 +18,7 @@ export class AccountComponent implements OnInit {
   cif1: Customer = new Customer();
   accounts: Account[] = [];
   cif = localStorage.getItem('cif');
-
+ 
   ngOnInit() {
     this.getAccount();
     this.cif1.cif = this.cif
@@ -36,7 +36,7 @@ export class AccountComponent implements OnInit {
   account: Account = {
     accountNumber: '',
     name:'',
-    curencyType:'',
+    currencyType:'',
     balance: 0,
     createdAt:'',
     updatedAt:'',
@@ -44,9 +44,8 @@ export class AccountComponent implements OnInit {
 
   }
 
-
   async createAccount(){
-    this.account.curencyType = this.formAccount.controls.curencyType.value;
+    this.account.currencyType = this.formAccount.controls.curencyType.value;
     this.account.name = this.formAccount.controls["name"].value;
     console.log(this.account);
     const response = await this.service.createAccount(this.account).toPromise();
