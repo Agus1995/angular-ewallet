@@ -5,22 +5,21 @@
         <div class="row">
           <div class="col-2"></div>
           <div class="col-8">
-            <form action="/action_page.php">
+            <form [formGroup]="formTrans" (ngSubmit)="createTopUp()" >
               <div class="form-group">
                 <label>Top-Up From </label>
-                <input class="form-control" id="fromAcc">
+                <input class="form-control" formControlName="accFrom">
               </div>
-              <div class="form-group">
+              <div class="form-group"> 
                 <label>Recipient's account</label>
-                <select name="cars" class="custom-select">
+                <select class="custom-select" formControlName="accDst">
                   <option selected>Select Account</option>
-                  <option value="volvo">Akun 1</option>
-                  <option value="fiat">Akun 2</option>
+                  <option *ngFor = "let acc of accounts" [value]="acc.accountNumber">{{acc.name}}</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Amount</label>
-                <input class="form-control" id="amount">
+                <input class="form-control" id="amount" formControlName="amount">
               </div>
               <div style="text-align: center">
                 <button type="submit" class="btn btn-primary">Submit</button>
