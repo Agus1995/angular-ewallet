@@ -23,7 +23,7 @@
                                     </div>
                                 </div>
                                 <div class="userData ml-3">
-                                    <h2 class="d-block">Widya Sucitra</h2>
+                                    <h2 class="d-block">{{customers.firstName}} {{customers.lastName}}</h2>
                                     <h6 class="d-block">Video Uploads</h6>
                                     <h6 class="d-block">Blog Posts</h6>
                                 </div>
@@ -41,7 +41,7 @@
                                     </li>
                                 </ul> -->
                                 <div class="tab-content ml-1" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                    <div  class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
                                         
 
                                         <div class="row">
@@ -49,7 +49,7 @@
                                                 <label style="font-weight:bold;">First Name</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                Jamshaid Kamran
+                                                {{customers.firstName}}
                                             </div>
                                         </div>
                                         <hr />
@@ -59,7 +59,7 @@
                                                     <label style="font-weight:bold;">Last Name</label>
                                                 </div>
                                                 <div class="col-md-8 col-6">
-                                                    Jamshaid Kamran
+                                                    {{customers.lastName}}
                                                 </div>
                                             </div>
                                             <hr />
@@ -69,7 +69,7 @@
                                                 <label style="font-weight:bold;">Birth Date</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                March 22, 1994.
+                                                {{customers.birthDate}}
                                             </div>
                                         </div>
                                         <hr />
@@ -80,7 +80,7 @@
                                                 <label style="font-weight:bold;">NIK</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                12345677
+                                                {{customers.nik}}
                                             </div>
                                         </div>
                                         <hr />
@@ -90,7 +90,7 @@
                                                 <label style="font-weight:bold;">Phone</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                08962623928
+                                                {{customers.phone}}
                                             </div>
                                         </div>
                                         <hr />
@@ -99,7 +99,7 @@
                                                 <label style="font-weight:bold;">Address</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                Somethiggggggggggggg
+                                                {{customers.address}}
                                             </div>
                                         </div>
                                         <hr />
@@ -109,7 +109,7 @@
                                                     <label style="font-weight:bold;">Mother's Name</label>
                                                 </div>
                                                 <div class="col-md-8 col-6">
-                                                    Mama
+                                                    {{customers.mothersName}}
                                                 </div>
                                             </div>
                                             <hr />

@@ -5,10 +5,10 @@
         <div class="row">
           <div class="col-2"></div>
           <div class="col-8">
-            <form action="/action_page.php" [formGroup]="formTransfer" (ngSubmit)="submitTransfer()">
+            <form  [formGroup]="formTransfer" (ngSubmit)="submitTransfer()">
               <div class="form-group">
                 <label>Transfer From </label>
-                <select  formControlName="accDebit" name="cars" class="custom-select">
+                <select  formControlName="accDebit" name="accDebit" class="custom-select">
                     <option  *ngFor="let ac of accounts" [value]="ac.name" selected>{{ac.name}} ({{ac.accountNumber}})</option>
                     <!-- <option value="volvo">Akun 1</option>
                     <option value="fiat">Akun 2</option> -->
