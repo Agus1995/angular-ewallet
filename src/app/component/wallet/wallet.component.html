@@ -90,7 +90,7 @@
                 <td>{{wa.account.name}}</td>
                 <td>{{wa.wallet.walletName}}</td>
                 <td>{{wa.account.balance}}</td>
-                <td><button>Unregister</button></td>
+                <td><button (click)="deleteWalAcc(wa.id)">Unregister</button></td>
               </tr>
             </tbody>
           </table>

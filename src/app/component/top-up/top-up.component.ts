@@ -30,20 +30,16 @@ export class TopUpComponent implements OnInit {
     })
   }
 
-  type: TransactionType = {
-    id: 7,
-    description: '',
-    type: 'TR-001'
-  }
-
-  trans: Transaction = {
-    id: '',
-    accCredit: '',
-    accDebit: '',
-    amount: 0,
-    date: '',
-    transactionTypeDTO: this.type
-  }
+  type: TransactionType = new TransactionType();
+  // trans: Transaction = {
+  //   id: '',
+  //   accCredit: '',
+  //   accDebit: '',
+  //   amount: 0,
+  //   date: '',
+  //   transactionTypeDTO: this.type
+  // }
+  trans: Transaction = new Transaction();
 
   account: Account = {
     accountNumber:'',
@@ -69,14 +65,14 @@ export class TopUpComponent implements OnInit {
   }
 
   async createTopUp(){
-    this.trans.accDebit = this.formTrans.controls.accFrom.value;
+    // this.type.type = 'TR-001';
+    // this.trans.transactionTypeDto = this.type;
+    this.trans.accDebet = this.formTrans.controls.accFrom.value;
     this.trans.accCredit = this.formTrans.controls.accDst.value;
     this.trans.amount = this.formTrans.controls.amount.value;
-    console.log(this.trans);
     const response = await this.serviceTrans.topUp(this.trans).toPromise();
-    console.log(this.trans);
     if(response.responsecode != 1){
-      alert(response.responsemessage)
+      alert(response.responsemessage);
     }else{
       alert("success");
     }

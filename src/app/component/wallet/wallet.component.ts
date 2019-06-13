@@ -89,6 +89,7 @@ export class WalletComponent implements OnInit {
     }else{
       alert("success");
       this.getWallet();
+      this.getWallAc();
     }
   }
 
@@ -137,4 +138,13 @@ export class WalletComponent implements OnInit {
     }
   }
 
+  async deleteWalAcc(id){
+    const response = await this.service.deleteWallAcc(id).toPromise();
+    if(response.responsecode != 1){
+      alert(response.responsemessage)
+    } else{
+      alert("delete Success");
+      this.getWallAc();
+    }
+  }
 }
