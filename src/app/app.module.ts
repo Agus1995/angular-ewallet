@@ -19,6 +19,7 @@ import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { ChartsModule } from 'ng2-charts';
+import { HistoryForexComponent } from './component/history-forex/history-forex.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ChartsModule } from 'ng2-charts';
     
     SidebarComponent,
     NavbarComponent,
+    //HistoryForexComponent,
     
     // ChartExComponent,
     
