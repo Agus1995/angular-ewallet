@@ -79,7 +79,7 @@ export class WalletComponent implements OnInit {
       this.getWallet();
     }
   }
-
+ 
   async createWallAcc(){
     this.account.accountNumber = this.formWallAcc.controls.accNumb.value;
     console.log(this.wallAcc);

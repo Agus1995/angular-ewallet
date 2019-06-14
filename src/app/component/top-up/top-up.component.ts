@@ -70,6 +70,7 @@ export class TopUpComponent implements OnInit {
     this.trans.accDebet = this.formTrans.controls.accFrom.value;
     this.trans.accCredit = this.formTrans.controls.accDst.value;
     this.trans.amount = this.formTrans.controls.amount.value;
+    console.log(this.trans);
     const response = await this.serviceTrans.topUp(this.trans).toPromise();
     if(response.responsecode != 1){
       alert(response.responsemessage);
