@@ -18,7 +18,7 @@ import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerComponent } from './component/customer/customer.component';
-import { ChartsModule } from 'ng2-charts'
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [

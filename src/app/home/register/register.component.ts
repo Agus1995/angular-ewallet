@@ -47,6 +47,7 @@ export class RegisterComponent implements OnInit {
     if (response.responsecode != 1) {
       alert(response.responsemessage)
     } else {
+      alert("success")
       this.router.navigate(['/login']);
     }
     await this.service.register(this.cus).toPromise();

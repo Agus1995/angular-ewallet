@@ -13,7 +13,7 @@ export class AuthService {
 
   urlLogin = 'http://localhost:9191/login';
   urlRegister = 'http://localhost:9191/register';
-
+  urlProfile = 'http://localhost:9191/customer/';
  
 
 login(login: Customer) : Observable<CommonResponse<Customer>>{
@@ -31,6 +31,9 @@ register(register: Customer): Observable<CommonResponse<Customer>>{
   return this.http.post<CommonResponse<Customer>>(this.urlRegister, register);
 }
 
+profile(cif): Observable<CommonResponse<Customer>>{
+  return this.http.get<CommonResponse<Customer>>(this.urlProfile+cif);
+}
 
 }
 
