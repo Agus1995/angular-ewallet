@@ -18,7 +18,7 @@ export class TransferComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder, private service: AccountService, private serviceTrans: TransactionService ) { }
   cif1: Customer = new Customer();
   accounts: Account[] = [];
-  // transactions: Transaction = new Transaction();
+  transactions: Transaction = new Transaction();
   cif = localStorage.getItem('cif');
   formTransfer: FormGroup;
 
@@ -56,20 +56,18 @@ export class TransferComponent implements OnInit {
     }
   }
 
-
-  // async submitTransfer(){
-  //   this.transactions.accDebit = this.formTransfer.controls.accDebit.value;
-  //   this.transactions.accCredit = this.formTransfer.controls.accCredit.value;
-  //   this.transactions.amount = this.formTransfer.controls.amount.value;
-  //   const response = await this.serviceTrans.transfer(this.transactions).toPromise()
-  //   if (response.responsecode != 1){
-  //     alert(response.responsemessage)
-  //   } else {
-  //     alert("sucess")
-  //   }
-    // await this.serviceTrans.transfer(this.transactions).toPromise();
-    // console.log(this.transactions.accDebit)
-
-  // }
+  async submitTransfer(){
+    this.transactions.accDebet = this.formTransfer.controls.accDebit.value;
+    this.transactions.accCredit = this.formTransfer.controls.accCredit.value;
+    this.transactions.amount = this.formTransfer.controls.amount.value;
+    const response = await this.serviceTrans.topUp(this.transactions).toPromise()
+    if (response.responsecode != 1){
+      alert(response.responsemessage)
+    } else {
+      alert("sucess")
+    }
+    await this.serviceTrans.topUp(this.transactions).toPromise();
+    console.log(this.transactions.accDebet)
+  }
 
 }
