@@ -6,5 +6,5 @@ export class Transaction {
     accDebet : string;
     accCredit : string;
     amount : number;
-    transactionTypeDto : TransactionType;
+    transactionType : TransactionType;
 }

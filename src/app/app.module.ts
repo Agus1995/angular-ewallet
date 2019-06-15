@@ -17,6 +17,7 @@ import { TeamComponent } from './home/team/team.component';
 import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { DataTablesModule } from 'angular-datatables';
 import { CustomerComponent } from './component/customer/customer.component';
 import { ChartsModule } from 'ng2-charts';
 import { HistoryForexComponent } from './component/history-forex/history-forex.component';
@@ -41,7 +42,7 @@ import { HistoryForexComponent } from './component/history-forex/history-forex.c
     // ChartExComponent,
     
     
-    
+     
 
   ],
   imports: [
@@ -50,6 +51,7 @@ import { HistoryForexComponent } from './component/history-forex/history-forex.c
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DataTablesModule
     // ChartsModule
   ],
   providers: [],

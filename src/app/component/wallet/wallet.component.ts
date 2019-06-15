@@ -7,6 +7,8 @@ import { Customer } from 'src/app/model/customer';
 import { AccountService } from 'src/app/service/account.service';
 import { Account } from 'src/app/model/account';
 import { WalletAcc } from 'src/app/model/wallet-acc';
+import * as $ from 'jquery';
+import 'datatables.net-bs4';
 
 
 @Component({
@@ -32,6 +34,14 @@ export class WalletComponent implements OnInit {
     this.getWallet();
     this.getAccounts();
     this.getWallAc();
+    setTimeout(() => {
+      $(function () {
+        $('#tb-wallAcc').DataTable();
+      });
+      $(function () {
+        $('#tb-wall').DataTable();
+      });
+    }, 1000);
     this.cus.cif = this.cif
 
     this.formWallet = this.fb.group({

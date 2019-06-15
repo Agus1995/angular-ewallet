@@ -29,17 +29,17 @@ export class TopUpComponent implements OnInit {
       amount: ['', Validators.required]
     })
   }
-
+ 
   type: TransactionType = new TransactionType();
-  // trans: Transaction = {
-  //   id: '',
-  //   accCredit: '',
-  //   accDebit: '',
-  //   amount: 0,
-  //   date: '',
-  //   transactionTypeDTO: this.type
-  // }
-  trans: Transaction = new Transaction();
+  trans: Transaction = {
+    id: '',
+    accCredit: '',
+    accDebet: '',
+    amount: 0,
+    date: '',
+    transactionType: this.type
+  }
+  // trans: Transaction = new Transaction();
 
   account: Account = {
     accountNumber:'',
@@ -65,8 +65,7 @@ export class TopUpComponent implements OnInit {
   }
 
   async createTopUp(){
-    // this.type.type = 'TR-001';
-    // this.trans.transactionTypeDto = this.type;
+    this.type.type = 'TR-001';
     this.trans.accDebet = this.formTrans.controls.accFrom.value;
     this.trans.accCredit = this.formTrans.controls.accDst.value;
     this.trans.amount = this.formTrans.controls.amount.value;
