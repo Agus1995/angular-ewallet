@@ -8,7 +8,7 @@
               <div class="form-group">
                 <label>Transfer From </label>
                 <select  formControlName="accDebit" name="accDebit" class="custom-select">
-                    <option  *ngFor="let ac of accounts" [value]="ac.name" selected>{{ac.name}} ({{ac.accountNumber}})</option>
+                    <option  *ngFor="let ac of accounts" [value]="ac.accountNumber" selected>{{ac.name}} ({{ac.accountNumber}})</option>
                     <!-- <option value="volvo">Akun 1</option>
                     <option value="fiat">Akun 2</option> -->
                   </select>
@@ -22,7 +22,7 @@
                 <input formControlName="amount" class="form-control" id="amount">
               </div>
               <div style="text-align: center">
-                <button type="submit" data-dismiss="modal" class="btn btn-primary" (click)="submitTransfer()" >Submit</button>
+                <button type="submit" data-dismiss="modal" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>

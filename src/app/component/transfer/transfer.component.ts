@@ -16,11 +16,19 @@ import { TransactionType } from 'src/app/model/transaction-type';
 export class TransferComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder, private service: AccountService, private serviceTrans: TransactionService ) { }
-  cif1: Customer = new Customer();
   accounts: Account[] = [];
   // transactions: Transaction = new Transaction();
   cif = localStorage.getItem('cif');
   formTransfer: FormGroup;
+  type: TransactionType = new TransactionType();
+  trans: Transaction = {
+    id: '',
+    accCredit: '',
+    accDebet: '',
+    amount: 0,
+    date: '',
+    transactionType: this.type
+  }
 
   ngOnInit() {
   this.getAccount();
@@ -31,17 +39,6 @@ export class TransferComponent implements OnInit {
     amount: ['', Validators.required]
   })
   }
-
-  // transactions: Transaction = {
-  //   id: '',
-  //   accDebit: 0,
-  //   accCredit: 0,
-  //   amount: 0,
-  //   date: Date,
-  //   transactionType: TransactionType;
-
-
-  // }
 
   async getAccount(){
     if(this.cif == undefined){
@@ -56,20 +53,17 @@ export class TransferComponent implements OnInit {
     }
   }
 
-
-  // async submitTransfer(){
-  //   this.transactions.accDebit = this.formTransfer.controls.accDebit.value;
-  //   this.transactions.accCredit = this.formTransfer.controls.accCredit.value;
-  //   this.transactions.amount = this.formTransfer.controls.amount.value;
-  //   const response = await this.serviceTrans.transfer(this.transactions).toPromise()
-  //   if (response.responsecode != 1){
-  //     alert(response.responsemessage)
-  //   } else {
-  //     alert("sucess")
-  //   }
-    // await this.serviceTrans.transfer(this.transactions).toPromise();
-    // console.log(this.transactions.accDebit)
-
-  // }
-
+  async submitTransfer(){
+    this.type.type = 'TR-002';
+    this.trans.accDebet = this.formTransfer.controls.accDebit.value;
+    this.trans.accCredit = this.formTransfer.controls.accCredit.value;
+    this.trans.amount = this.formTransfer.controls.amount.value;
+    console.log(this.trans);
+    const response = await this.serviceTrans.topUp(this.trans).toPromise();
+    if (response.responsecode != 1){
+      alert(response.responsemessage)
+    } else {
+      alert("sucess")
+    }
+  }
 }
