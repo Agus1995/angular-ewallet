@@ -31,5 +31,5 @@ COPY --from=node /apps/dist/FinalProject/* /apps/nginx/nginx_root/
 ADD start.sh /root/entrypoint.sh
 RUN ["chmod", "+x", "/root/entrypoint.sh"]
 
-EXPOSE 3001
+EXPOSE 4200
 ENTRYPOINT /root/entrypoint.sh

@@ -46,7 +46,7 @@ pipeline{
             sh 'ssh -o StrictHostKeyChecking=no $deployServerUser@$deployServer "docker pull $registry || true"'
             sh 'ssh -o StrictHostKeyChecking=no $deployServerUser@$deployServer "mkdir -p $deployPath"'
             sh 'scp -o StrictHostKeyChecking=no deploy/dev.env $deployServerUser@$deployServer:$deployPath/app.env'
-            sh 'ssh -o StrictHostKeyChecking=no $deployServerUser@$deployServer "cd $deployPath && docker run -p 8180:8180 -d --env-file=app.env --name=$containerName $registry"'
+            sh 'ssh -o StrictHostKeyChecking=no $deployServerUser@$deployServer "cd $deployPath && docker run -p 4200:4200 -d --env-file=app.env --name=$containerName $registry"'
         }
       }
     }
