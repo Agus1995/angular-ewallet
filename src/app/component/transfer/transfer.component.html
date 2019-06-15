@@ -4,25 +4,25 @@
         <div class="row">
           <div class="col-2"></div>
           <div class="col-8">
-            <form action="/action_page.php">
+            <form  [formGroup]="formTransfer" (ngSubmit)="submitTransfer()">
               <div class="form-group">
-                <label>Tranfer From </label>
-                <select name="cars" class="custom-select">
-                    <option selected>Select Account</option>
-                    <option value="volvo">Akun 1</option>
-                    <option value="fiat">Akun 2</option>
+                <label>Transfer From </label>
+                <select  formControlName="accDebit" name="accDebit" class="custom-select">
+                    <option  *ngFor="let ac of accounts" [value]="ac.name" selected>{{ac.name}} ({{ac.accountNumber}})</option>
+                    <!-- <option value="volvo">Akun 1</option>
+                    <option value="fiat">Akun 2</option> -->
                   </select>
               </div>
               <div class="form-group">
                 <label>Recipient's account</label>
-                <input class="form-control" id="fromAcc">
+                <input formControlName="accCredit"  class="form-control" id="recipientAcc">
               </div>
               <div class="form-group">
                 <label>Amount</label>
-                <input class="form-control" id="amount">
+                <input formControlName="amount" class="form-control" id="amount">
               </div>
               <div style="text-align: center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" data-dismiss="modal" class="btn btn-primary" (click)="submitTransfer()" >Submit</button>
               </div>
             </form>
           </div>

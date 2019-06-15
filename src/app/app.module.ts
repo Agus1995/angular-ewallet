@@ -17,9 +17,11 @@ import { TeamComponent } from './home/team/team.component';
 import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { DataTablesModule } from 'angular-datatables';
 import { CustomerComponent } from './component/customer/customer.component';
-import { TopUpComponent } from './component/top-up/top-up.component';
-import { TransferComponent } from './component/transfer/transfer.component';
+import { ChartsModule } from 'ng2-charts';
+import { HistoryForexComponent } from './component/history-forex/history-forex.component';
+import { KursComponent } from './component/kurs/kurs.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +38,13 @@ import { TransferComponent } from './component/transfer/transfer.component';
     
     SidebarComponent,
     NavbarComponent,
+    KursComponent,
+    //HistoryForexComponent,
     
-    ChartExComponent,
+    // ChartExComponent,
     
     
-    
+     
 
   ],
   imports: [
@@ -48,7 +52,9 @@ import { TransferComponent } from './component/transfer/transfer.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
+    // ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

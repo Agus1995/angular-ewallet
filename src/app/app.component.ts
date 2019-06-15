@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,17 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  title = 'FinalProject';
+
   constructor(){}
+
   id = localStorage.getItem('cif');
   home = false;
 
   ngOnInit(): void {
-    // if (this.id!=null) {
-    //   this.home = false;
-    // }else{
-    //   this.home = true;
-    // }
+    
   }
-
-  title = 'FinalProject';
+  
 }

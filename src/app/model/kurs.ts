@@ -1,6 +1,9 @@
 export class Kurs {
-    id : string;
-    ccy : string;
+    id : number;
+    date: Date;
+    ccy1 : string;
+    ccy2 : string;
     sell : number;
     buy: number;
+    
 }

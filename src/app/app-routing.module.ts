@@ -11,6 +11,7 @@ import { NavbarHomeComponent } from './home/navbar-home/navbar-home.component';
 import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { HomeComponent } from './home/home.component';
 import {AuthenticationGuardService} from './security/authentication-guard.service';
+import { KursComponent } from './component/kurs/kurs.component';
 
 const routes: Routes = [
   {path: "", redirectTo:"customer/profile",pathMatch:"full"},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:"programs", component: ProgramsComponent},
   {path:"team", component: TeamComponent},
   {path:"navbarHome", component: NavbarHomeComponent},
-  {path:"footerHome", component: FooterHomeComponent}
+  {path:"footerHome", component: FooterHomeComponent},
+  {path:"kurs", component: KursComponent}
 
 ];
 
