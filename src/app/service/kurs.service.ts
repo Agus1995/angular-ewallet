@@ -11,7 +11,7 @@ export class KursService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://104.248.147.193:9191/kurs';
+  url = 'http://localhost:9191/kurs';
 
   addKurs(kurs : Kurs):Observable<CommonResponse<Kurs>>{
     return this.http.post<CommonResponse<Kurs>>(this.url, kurs);
@@ -29,6 +29,6 @@ export class KursService {
     const params = new HttpParams()
                   .set('ccy1', ccy1)
                   .set('ccy2', ccy2)
-    return this.http.get<CommonResponse<Kurs>>(this.url+"/graph");
+    return this.http.get<CommonResponse<Kurs>>(this.url+"/graph", {params});
   }
 }
