@@ -26,7 +26,7 @@ RUN mkdir /apps /apps/nginx /apps/nginx/logs /apps/nginx/nginx_root
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY primary-nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=node /apps/dist/wallet-forex-fe/* /apps/nginx/nginx_root/
+COPY --from=node /apps/dist/FinalProject/* /apps/nginx/nginx_root/
 
 ADD start.sh /root/entrypoint.sh
 RUN ["chmod", "+x", "/root/entrypoint.sh"]
