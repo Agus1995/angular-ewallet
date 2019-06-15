@@ -21,6 +21,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { CustomerComponent } from './component/customer/customer.component';
 import { ChartsModule } from 'ng2-charts';
 import { HistoryForexComponent } from './component/history-forex/history-forex.component';
+import { KursComponent } from './component/kurs/kurs.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { HistoryForexComponent } from './component/history-forex/history-forex.c
     
     SidebarComponent,
     NavbarComponent,
+    KursComponent,
     //HistoryForexComponent,
     
     // ChartExComponent,

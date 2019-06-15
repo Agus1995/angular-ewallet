@@ -5,7 +5,7 @@ import { TopUpComponent } from 'src/app/component/top-up/top-up.component';
 import { TransferComponent } from 'src/app/component/transfer/transfer.component';
 
 const routes: Routes = [
-  {path:"", component: TransactionComponent},
+  {path:"history", component: TransactionComponent},
   {path:"topup", component: TopUpComponent},
   {path:"transfer", component: TransferComponent}
 ];

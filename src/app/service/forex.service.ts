@@ -11,7 +11,7 @@ export class ForexService {
 
   constructor(private http: HttpClient) { }
 
-  urlGetKurs = 'http://localhost:9191/kurs';
+  urlGetKurs = 'http://104.248.147.193:9191/kurs';
 
   getKurs() : Observable<CommonResponse<Kurs[]>>{
     return this.http.get<CommonResponse<Kurs[]>>(this.urlGetKurs);

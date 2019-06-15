@@ -13,13 +13,13 @@ export class WalletService {
   constructor(private http: HttpClient) { }
 
 
-urlcreateWallet = 'http://localhost:9191/wallet';
-urlgetWallet = 'http://localhost:9191/customer/';
+urlcreateWallet = 'http://104.248.147.193:9191/wallet';
+urlgetWallet = 'http://104.248.147.193:9191/customer/';
 
-urlAddWallAcc = 'http://localhost:9191/wallet-account';
-urlGetWallAcc = 'http://localhost:9191/customer/';
+urlAddWallAcc = 'http://104.248.147.193:9191/wallet-account';
+urlGetWallAcc = 'http://104.248.147.193:9191/customer/';
 
-urlDelWallAcc = 'http://localhost:9191/wallet-account/';
+urlDelWallAcc = 'http://104.248.147.193:9191/wallet-account/';
 
 creatWallet(wallet: Wallet) :Observable<CommonResponse<Wallet>>{
   return this.http.post<CommonResponse<Wallet>>(this.urlcreateWallet, wallet);

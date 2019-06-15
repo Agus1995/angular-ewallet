@@ -11,8 +11,8 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-urlAccount = 'http://localhost:9191/account';
-urlgetAccount = 'http://localhost:9191/customer/';
+urlAccount = 'http://104.248.147.193:9191/account';
+urlgetAccount = 'http://104.248.147.193:9191/customer/';
 
 createAccount(account: Account) :Observable<CommonResponse<Account>>{
   return this.http.post<CommonResponse<Account>>(this.urlAccount, account);

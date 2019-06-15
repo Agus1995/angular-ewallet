@@ -11,8 +11,8 @@ export class TransactionService {
 
   constructor(private http: HttpClient) { } 
 
-  urlTopUp = 'http://localhost:9191/transaction';
-  urlGetTrans = 'http://localhost:9191/account/';
+  urlTopUp = 'http://104.248.147.193:9191/transaction';
+  urlGetTrans = 'http://104.248.147.193:9191/account/';
 
   topUp(trans: Transaction) : Observable<CommonResponse<Transaction>>{
     return this.http.post<CommonResponse<Transaction>>(this.urlTopUp, trans)
