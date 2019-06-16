@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { ForexService } from 'src/app/service/forex.service';
+import { KursService } from 'src/app/service/kurs.service';
+import { Kurs } from 'src/app/model/kurs';
 
 @Component({
   selector: 'app-chart-ex',
@@ -10,11 +12,13 @@ import { ForexService } from 'src/app/service/forex.service';
 })
 export class ChartExComponent implements OnInit {
 
-  constructor(private serviceForex: ForexService) { }
+  constructor(private serviceKurs: KursService) { }
 
   ngOnInit() {
 	}
-	
+  
+  kurs: Kurs = new Kurs();
+  
 	public barChartOptions: ChartOptions = {
     responsive: true,
 	}; 
@@ -30,7 +34,9 @@ export class ChartExComponent implements OnInit {
 	];
   
   async getBuyValue(){
-    const response = await this.serviceForex.getKurs().toPromise();
+    this.kurs.ccy1 = "";
+    this.kurs.ccy2 = "";
+    const response = await this.serviceKurs.getGraph(this.kurs.ccy1, this.kurs.ccy2).toPromise();
     if(response.responsecode != 1){
       alert(response.responsemessage)
     } else{

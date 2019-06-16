@@ -21,14 +21,17 @@ export class KursService {
     return this.http.get<CommonResponse<Kurs[]>>(this.url);
   }
 
-  getNew(): Observable<CommonResponse<Kurs>>{
-    return this.http.get<CommonResponse<Kurs>>(this.url+"/new");
-  }
-
-  getGraph(ccy1, ccy2): Observable<CommonResponse<Kurs>>{
+  getNew(ccy1, ccy2): Observable<CommonResponse<Kurs>>{
     const params = new HttpParams()
                   .set('ccy1', ccy1)
                   .set('ccy2', ccy2)
-    return this.http.get<CommonResponse<Kurs>>(this.url+"/graph", {params});
+    return this.http.get<CommonResponse<Kurs>>(this.url+"/new", {params});
+  }
+
+  getGraph(ccy1, ccy2): Observable<CommonResponse<Kurs[]>>{
+    const params = new HttpParams()
+                  .set('ccy1', ccy1)
+                  .set('ccy2', ccy2)
+    return this.http.get<CommonResponse<Kurs[]>>(this.url+"/graph", {params});
   }
 }

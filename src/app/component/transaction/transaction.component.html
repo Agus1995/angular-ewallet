@@ -31,7 +31,7 @@
           <tr *ngFor="let t of trans">
             <td> {{t.accDebet}} </td>
             <td> {{t.accCredit}} </td>
-            <td> {{t.amount}} </td>
+            <td> {{t.amount | currency:" ":"code"}} </td>
             <td> {{t.transactionType.description}} </td>
             <td> {{t.date}} </td>
           </tr>
