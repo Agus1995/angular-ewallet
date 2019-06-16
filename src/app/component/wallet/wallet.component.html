@@ -89,7 +89,7 @@
               <tr *ngFor="let wa of wallAccList">
                 <td>{{wa.account.name}}</td>
                 <td>{{wa.wallet.walletName}}</td>
-                <td>{{wa.account.balance}}</td>
+                <td>{{wa.account.balance | currency:" ":"code"}}</td>
                 <td><button (click)="deleteWalAcc(wa.id)">Unregister</button></td>
               </tr> 
             </tbody>

@@ -82,7 +82,7 @@
           <td>{{ac.accountNumber}}</td>
           <td>{{ac.name}}</td>
           <td>{{ac.updatedAt | date: 'longDate'}}</td>
-          <td>{{ac.balance}}</td>
+          <td>{{ac.balance |currency:" ":"code"}}</td>
           <td>{{ac.curencyType}}</td>
         </tr>
       </tbody>
