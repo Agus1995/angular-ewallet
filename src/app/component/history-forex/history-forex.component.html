@@ -5,7 +5,7 @@
               <div class="col-7"></div>
               <div class="col-2"><h6>Select Account :</h6></div>
               <div class="col-2">
-                  <select class="custom-select" (change)="getTrans($event.target.value)" >
+                  <select class="custom-select">
                       <option value="" disabled>Select Account</option>
                       <option *ngFor="let acc of accounts" [value]="acc.accountNumber">{{acc.name}}</option>
                     </select>
@@ -15,16 +15,16 @@
             <br>
             <table class="table table-striped table-dark table-hover">
                 <thead class="thead-dark">
-                  <tr> 
+                  <tr>
                     <th>Account Debit</th>
                     <th>Account Credit</th>
                     <th>Amount</th>
                     <th>Transaction Type</th>
                     <th>Date</th>
-                    
+
                   </tr>
                 </thead>
-      
+
                 <tbody>
                   <!-- <tr *ngFor="let t of trans">
                     <td> {{t.accDebet}} </td>

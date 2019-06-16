@@ -17,7 +17,7 @@ export class TransferComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder, private service: AccountService, private serviceTrans: TransactionService ) { }
   accounts: Account[] = [];
-  // transactions: Transaction = new Transaction();
+  transactions: Transaction = new Transaction();
   cif = localStorage.getItem('cif');
   formTransfer: FormGroup;
   type: TransactionType = new TransactionType();
