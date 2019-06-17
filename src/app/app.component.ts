@@ -1,20 +1,25 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterContentChecked, AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterContentChecked, AfterViewChecked{
   title = 'FinalProject';
 
   constructor(){}
+  id: string;
 
-  id = localStorage.getItem('cif');
   home = false;
 
-  ngOnInit(): void {
-    
+  ngAfterContentChecked(): void {
+    this.id = localStorage.getItem('cif');
   }
-  
+  ngAfterViewChecked(): void {
+    this.id = localStorage.getItem('cif');
+  }
+  ngOnInit(): void {
+    this.id = localStorage.getItem('cif');
+  }
 }
