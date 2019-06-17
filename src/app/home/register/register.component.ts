@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
       password: ['', Validators.required],
       email: ['', Validators.required],
       npwp: ['', Validators.required],
-    })
+    });
   }
 
   async register() {
