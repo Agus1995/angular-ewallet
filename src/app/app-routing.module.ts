@@ -12,6 +12,8 @@ import { FooterHomeComponent } from './home/footer-home/footer-home.component';
 import { HomeComponent } from './home/home.component';
 import {AuthenticationGuardService} from './security/authentication-guard.service';
 import { KursComponent } from './component/kurs/kurs.component';
+import { ListAccComponent } from './component/list-acc/list-acc.component';
+import { NotFoundComponent } from './component/not-found/not-found.component';
 
 const routes: Routes = [
   {path: "", redirectTo:"customer/profile",pathMatch:"full"},
@@ -30,7 +32,9 @@ const routes: Routes = [
   {path:"team", component: TeamComponent},
   {path:"navbarHome", component: NavbarHomeComponent},
   {path:"footerHome", component: FooterHomeComponent},
-  {path:"kurs", component: KursComponent}
+  {path:"kurs", component: KursComponent},
+  {path:"404Notfound", component: NotFoundComponent},
+  {path:"listAcc", component: ListAccComponent}
 
 ];
 

@@ -25,10 +25,10 @@
                     </div>
                     <div class="form-group">
                       <label>Amount</label>
-                      <input formControlName="amount" class="form-control" id="amount">
+                      <input type="number" formControlName="amount" class="form-control" id="amount">
                     </div>
                     <div style="text-align: center">
-                      <button type="submit" data-dismiss="modal" class="btn btn-primary">Submit</button>
+                      <button type="submit" data-dismiss="modal" class="btn btn-primary" [disabled]="!formTransfer.valid">Submit</button>
                     </div>
                   </form>
                 </div>

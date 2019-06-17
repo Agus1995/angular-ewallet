@@ -92,7 +92,7 @@
                 <label for="recipient-name" class="col-form-label">Amount:</label>
               </div>
               <div class="col-sm-7">
-                <input type="text" class="form-control" id="recipient-name" formControlName="amountSell">
+                <input type="number" class="form-control" id="recipient-name" formControlName="amountSell">
               </div>
             </div>
           </div>
@@ -100,7 +100,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="tradeSell()">Submit</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="tradeSell()" [disabled]="!formSell.valid">Submit</button>
       </div>
     </div>
   </div>
@@ -141,7 +141,7 @@
                 <label for="recipient-name" class="col-form-label">Amount</label>
               </div>
               <div class="col-sm-7">
-                <input type="text" formControlName="amountBuy" class="form-control" id="recipient-name">
+                <input type="number" formControlName="amountBuy" class="form-control" id="recipient-name">
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="tradeBuy()">Submit</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="tradeBuy()" [disabled]="!formBuy.valid">Submit</button>
       </div>
     </div>
   </div>

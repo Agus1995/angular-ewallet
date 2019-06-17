@@ -18,7 +18,6 @@ export class NavbarComponent implements OnInit {
     if (window.confirm('Are you sure, you want to Logout?')) {
       localStorage.removeItem("cif");
       this.router.navigate(['/home']);
-      alert("delete success")
     }
   }
 }

@@ -18,7 +18,7 @@ import 'datatables.net-bs4';
 })
 export class WalletComponent implements OnInit {
 
-  constructor(private router: Router, private service: WalletService, private fb: FormBuilder, private serviceAcc: AccountService ) { }
+  constructor(private router: Router, private service: WalletService, private fb: FormBuilder, private serviceAcc: AccountService) { }
   cif = localStorage.getItem('cif');
   wallets: Wallet[] = [];
   formWallet: FormGroup;
@@ -55,20 +55,20 @@ export class WalletComponent implements OnInit {
 
   wallet: Wallet = {
     walletId: '',
-    walletName:'',
-    createdAt:'',
+    walletName: '',
+    createdAt: '',
     updatedAt: '',
     customer: this.cus
   }
 
   // @Input()
   account: Account = {
-    accountNumber:'',
-    name:'',
-    currencyType:'',
+    accountNumber: '',
+    name: '',
+    currencyType: '',
     balance: 0,
-    createdAt:'',
-    updatedAt:'',
+    createdAt: '',
+    updatedAt: '',
     customer: this.cus
 
   }
@@ -78,83 +78,85 @@ export class WalletComponent implements OnInit {
     account: this.account,
     wallet: this.wallet
   }
-  async createWallet(){
+  async createWallet() {
     this.wallet.walletName = this.formWallet.controls.walletName.value;
     const response = await this.service.creatWallet(this.wallet).toPromise();
     console.log(this.wallet);
-    if(response.responsecode != 1){
+    if (response.responsecode != 1) {
       alert(response.responsemessage)
-    }else{
+    } else {
       alert("success");
       this.getWallet();
     }
   }
- 
-  async createWallAcc(){
+
+  async createWallAcc() {
     this.account.accountNumber = this.formWallAcc.controls.accNumb.value;
     console.log(this.wallAcc);
     const response = await this.service.addWallAcc(this.wallAcc).toPromise();
-    if(response.responsecode != 1){
+    if (response.responsecode != 1) {
       alert(response.responsemessage)
-    }else{
+    } else {
       alert("success");
       this.getWallet();
       this.getWallAc();
     }
   }
 
-  getWallId(w){
+  getWallId(w) {
     // this.wall.walletId = w;
     console.log(w.walletId);
     this.wallet.walletId = w.walletId;
   }
 
-  async getWallet(){
-    if(this.cif == undefined){
+  async getWallet() {
+    if (this.cif == undefined) {
       this.cif = localStorage.getItem(this.cif);
     }
     const response = await this.service.getWalllet(this.cif).toPromise();
-    if(response.responsecode != 1){
+    if (response.responsecode != 1) {
       alert(response.responsemessage)
-    } else{
+    } else {
       console.log(response.data)
       this.wallets = response.data;
     }
   }
 
-  async getAccounts(){
+  async getAccounts() {
     if (this.cif == undefined) {
       this.cif = localStorage.getItem('cif');
     }
     const response = await this.serviceAcc.getAccount(this.cif).toPromise();
-    if(response.responsecode != 1){
+    if (response.responsecode != 1) {
       alert(response.responsemessage)
-    } else{
+    } else {
       console.log(response.data)
-      this.accounts= response.data;
+      this.accounts = response.data;
     }
   }
 
-  async getWallAc(){
+  async getWallAc() {
     if (this.cif == undefined) {
       this.cif = localStorage.getItem('cif');
     }
     const response = await this.service.getWallAcc(this.cif).toPromise();
-    if(response.responsecode != 1){
+    if (response.responsecode != 1) {
       alert(response.responsemessage)
-    } else{
+    } else {
       console.log(response.data);
       this.wallAccList = response.data;
     }
   }
 
-  async deleteWalAcc(id){
-    const response = await this.service.deleteWallAcc(id).toPromise();
-    if(response.responsecode != 1){
-      alert(response.responsemessage)
-    } else{
-      alert("delete Success");
-      this.getWallAc();
+  async deleteWalAcc(id) {
+    if (window.confirm('Are you sure, you want to Delete?')) {
+      const response = await this.service.deleteWallAcc(id).toPromise();
+      if (response.responsecode != 1) {
+        alert(response.responsemessage)
+      } else {
+        alert("delete Success");
+        this.getWallAc();
+      }
     }
   }
 }

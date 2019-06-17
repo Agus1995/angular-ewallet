@@ -14,6 +14,9 @@ export class AuthService {
   urlLogin = 'http://localhost:9191/login';
   urlRegister = 'http://localhost:9191/register';
   urlProfile = 'http://localhost:9191/customer/';
+  // urlLogin = 'http://104.248.147.193:9191/login';
+  // urlRegister = 'http://104.248.147.193:9191/api/register';
+  // urlProfile = 'http://104.248.147.193:9191/api/customer/';
  
 
 login(login: Customer) : Observable<CommonResponse<Customer>>{
