@@ -45,12 +45,11 @@ export class RegisterComponent implements OnInit {
     this.cus.npwp = this.formRegister.controls.npwp.value;
     const response = await this.service.register(this.cus).toPromise();
     if (response.responsecode != 1) {
-      alert(response.responsemessage)
+      alert(response.responsemessage);
     } else {
-      alert("success")
+      alert('success')
       this.router.navigate(['/login']);
     }
     await this.service.register(this.cus).toPromise();
-  console.log(this.cus.firstName);
   }
 }
