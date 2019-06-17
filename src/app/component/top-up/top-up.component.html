@@ -14,18 +14,25 @@
                   <input class="form-control" formControlName="accFrom">
                 </div>
                 <div class="form-group">
+                    <label>Recipient's Wallet</label>
+                    <select class="custom-select" formControlName="listWallAcc" (change)="getWc($event.target.value)" >
+                      <option selected>Select Wallet</option>
+                      <option *ngFor="let wc of wallAcc" [value]="wc.walletId">{{wc.walletName}}</option>
+                    </select>
+                  </div>
+                <div class="form-group">
                   <label>Recipient's account</label>
                   <select class="custom-select" formControlName="accDst">
                     <option selected>Select Account</option>
-                    <option *ngFor="let acc of accounts" [value]="acc.accountNumber">{{acc.name}}</option>
+                    <option *ngFor="let acc of accounts" [value]="acc.account.accountNumber">{{acc.account.name}}</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Amount</label>
-                  <input class="form-control" id="amount" formControlName="amount">
+                  <input type="number" class="form-control" id="amount" formControlName="amount">
                 </div>
                 <div style="text-align: center">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" [disabled]="!formTrans.valid">Submit</button>
                 </div>
               </form>
             </div>

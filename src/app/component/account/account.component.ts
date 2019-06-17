@@ -60,6 +60,7 @@ export class AccountComponent implements OnInit {
       alert(response.responsemessage)
     } else {
       alert("success");
+      this.formAccount.reset();
       this.getAccount();
     }
   }
@@ -73,7 +74,6 @@ export class AccountComponent implements OnInit {
     if (response.responsecode != 1) {
       alert(response.responsemessage)
     } else {
-      console.log(response.data)
       this.accounts = response.data;
     }
   }

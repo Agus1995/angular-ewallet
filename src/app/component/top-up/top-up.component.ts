@@ -6,6 +6,9 @@ import { Transaction } from 'src/app/model/transaction';
 import { TransactionType } from 'src/app/model/transaction-type';
 import { Account } from 'src/app/model/account';
 import { Customer } from 'src/app/model/customer';
+import { WalletService } from 'src/app/service/wallet.service';
+import { WalletAcc } from 'src/app/model/wallet-acc';
+import { Wallet } from 'src/app/model/wallet';
 
 @Component({
   selector: 'app-top-up',
@@ -14,19 +17,22 @@ import { Customer } from 'src/app/model/customer';
 })
 export class TopUpComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private serviceAcc: AccountService, private serviceTrans: TransactionService) { }
+  constructor(private fb: FormBuilder,
+              private serviceTrans: TransactionService,
+              private serviceWall: WalletService) { }
+
   cif = localStorage.getItem('cif');
   formTrans: FormGroup;
-  // type: TransactionType = new TransactionType();
   cus: Customer = new Customer();
-  accounts: Account[] = [];
+  accounts: WalletAcc[] = [];
 
   ngOnInit() {
-    this.getAccounts();
+    this.getWallReg();
     this.formTrans = this.fb.group({
       accFrom: ['', Validators.required],
       accDst: ['', Validators.required],
-      amount: ['', Validators.required]
+      amount: ['', Validators.required],
+      listWallAcc: ['', Validators.required]
     })
   }
  
@@ -39,7 +45,6 @@ export class TopUpComponent implements OnInit {
     date: '',
     transactionType: this.type
   }
-  // trans: Transaction = new Transaction();
 
   account: Account = {
     accountNumber:'',
@@ -49,19 +54,6 @@ export class TopUpComponent implements OnInit {
     createdAt:'',
     updatedAt:'',
     customer: this.cus
-  }
-  
-  async getAccounts(){
-    if (this.cif == undefined) {
-      this.cif = localStorage.getItem('cif');
-    }
-    const response = await this.serviceAcc.getAccount(this.cif).toPromise();
-    if(response.responsecode != 1){
-      alert(response.responsemessage)
-    } else{
-      console.log(response.data)
-      this.accounts= response.data;
-    }
   }
 
   async createTopUp(){
@@ -75,6 +67,31 @@ export class TopUpComponent implements OnInit {
       alert(response.responsemessage);
     }else{
       alert("success");
+      this.formTrans.reset();
+    }
+  }
+
+  wallAcc: Wallet[]=[];
+  listWallAcc: []=[];
+  async getWallReg(){
+    if (this.cif == undefined) {
+      this.cif = localStorage.getItem('cif');
+    }
+    const response = await this.serviceWall.getWalllet(this.cif).toPromise();
+    if(response.responsecode != 1){
+      alert(response.responsemessage);
+    }else{
+      this.wallAcc = response.data;
+    }
+  }
+
+  async getWc(wc){
+    const response = await this.serviceWall.getAccReg(wc).toPromise();
+    if(response.responsecode != 1){
+      alert(response.responsemessage);
+    }else{
+      this.accounts = response.data;
+      console.log(this.wallAcc);
     }
   }
 }

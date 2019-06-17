@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Customer } from '../model/customer';
 import { Observable } from 'rxjs';
 import { CommonResponse } from '../security/commonResponse';
-import {Constants} from './Constants';
+import { Constants } from './Constants';
 
 @Injectable({
   providedIn: 'root'

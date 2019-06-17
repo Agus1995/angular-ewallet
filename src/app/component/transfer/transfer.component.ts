@@ -7,6 +7,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Transaction } from 'src/app/model/transaction';
 import { TransactionService } from 'src/app/service/transaction.service';
 import { TransactionType } from 'src/app/model/transaction-type';
+import { WalletService } from 'src/app/service/wallet.service';
+import { WalletAcc } from 'src/app/model/wallet-acc';
+import { Wallet } from 'src/app/model/wallet';
 
 @Component({
   selector: 'app-transfer',
@@ -15,8 +18,13 @@ import { TransactionType } from 'src/app/model/transaction-type';
 })
 export class TransferComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, private service: AccountService, private serviceTrans: TransactionService ) { }
-  accounts: Account[] = [];
+  constructor(private router: Router, 
+              private fb: FormBuilder, 
+              private service: AccountService, 
+              private serviceTrans: TransactionService,
+              private serviceWall: WalletService ) { }
+
+  accounts: WalletAcc[] = [];
   transactions: Transaction = new Transaction();
   cif = localStorage.getItem('cif');
   formTransfer: FormGroup;
@@ -31,26 +39,13 @@ export class TransferComponent implements OnInit {
   }
 
   ngOnInit() {
-  this.getAccount();
-
+  this.getWallReg();
   this.formTransfer = this.fb.group({
     accDebit: ['', Validators.required],
     accCredit: ['', Validators.required],
-    amount: ['', Validators.required]
+    amount: ['', Validators.required],
+    listWallAcc: ['', Validators.required]
   })
-  }
-
-  async getAccount(){
-    if(this.cif == undefined){
-      this.cif = localStorage.getItem(this.cif);
-    }
-    const response = await this.service.getAccount(this.cif).toPromise();
-    if(response.responsecode != 1){
-      alert(response.responsemessage)
-    } else{
-      console.log(response.data)
-      this.accounts= response.data;
-    }
   }
 
   async submitTransfer(){
@@ -64,6 +59,31 @@ export class TransferComponent implements OnInit {
       alert(response.responsemessage)
     } else {
       alert("sucess")
+      this.formTransfer.reset();
+    }
+  }
+
+  wallAcc: Wallet[]=[];
+  listWallAcc: []=[];
+  async getWallReg(){
+    if (this.cif == undefined) {
+      this.cif = localStorage.getItem('cif');
+    }
+    const response = await this.serviceWall.getWalllet(this.cif).toPromise();
+    if(response.responsecode != 1){
+      alert(response.responsemessage);
+    }else{
+      this.wallAcc = response.data;
+    }
+  }
+
+  async getWc(wc){
+    const response = await this.serviceWall.getAccReg(wc).toPromise();
+    if(response.responsecode != 1){
+      alert(response.responsemessage);
+    }else{
+      this.accounts = response.data;
+      console.log(this.wallAcc);
     }
   }
 }

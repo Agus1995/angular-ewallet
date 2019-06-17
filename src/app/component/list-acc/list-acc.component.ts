@@ -1,22 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AccountService } from 'src/app/service/account.service';
 import { Account } from 'src/app/model/account';
 
 @Component({
-  selector: 'app-history-forex',
-  templateUrl: './history-forex.component.html',
-  styleUrls: ['./history-forex.component.css']
+  selector: 'app-list-acc',
+  templateUrl: './list-acc.component.html',
+  styleUrls: ['./list-acc.component.css']
 })
-export class HistoryForexComponent implements OnInit {
+export class ListAccComponent implements OnInit {
 
   constructor(private serviceAcc: AccountService) { }
 
   accounts: Account[] = [];
+  account: string = '';
 
   ngOnInit() {
     this.getAccounts();
   }
- 
+
+  @Input()
+  receiveAcc: string;
 
   async getAccounts(){
     let cif = localStorage.getItem('cif');
@@ -26,6 +29,11 @@ export class HistoryForexComponent implements OnInit {
     } else{
       this.accounts= response.data;
     }
+  }
+
+  getAcc(acc){
+    console.log(acc);
+    this.account = acc;
   }
 
 }

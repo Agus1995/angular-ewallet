@@ -22,6 +22,8 @@ import { CustomerComponent } from './component/customer/customer.component';
 import { ChartsModule } from 'ng2-charts';
 import { HistoryForexComponent } from './component/history-forex/history-forex.component';
 import { KursComponent } from './component/kurs/kurs.component';
+import { ListAccComponent } from './component/list-acc/list-acc.component';
+import { NotFoundComponent } from './component/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { KursComponent } from './component/kurs/kurs.component';
     SidebarComponent,
     NavbarComponent,
     KursComponent,
+    ListAccComponent,
+    NotFoundComponent,
     //HistoryForexComponent,
     
     // ChartExComponent,
