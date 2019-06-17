@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Transaction } from '../model/transaction';
 import { Observable } from 'rxjs';
 import { CommonResponse } from '../security/commonResponse';
+import {Constants} from "./Constants";
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,11 @@ export class TransactionService {
 
   constructor(private http: HttpClient) { } 
 
-  urlTopUp = 'http://localhost:9191/transaction';
-  urlGetTrans = 'http://localhost:9191/account/';
-
-  topUp(trans: Transaction) : Observable<CommonResponse<Transaction>>{
-    return this.http.post<CommonResponse<Transaction>>(this.urlTopUp, trans)
+  topUp(trans: Transaction): Observable<CommonResponse<Transaction>>{
+    return this.http.post<CommonResponse<Transaction>>(`${Constants.API_BASE_URL}/transaction`, trans);
   }
 
-  getTransaction(accNum) : Observable<CommonResponse<Transaction[]>>{
-    return this.http.get<CommonResponse<Transaction[]>>(this.urlGetTrans+accNum+'/transactions')
+  getTransaction(accNum): Observable<CommonResponse<Transaction[]>>{
+    return this.http.get<CommonResponse<Transaction[]>>(`${Constants.API_BASE_URL}/account/` + accNum + '/transactions');
   }
 }

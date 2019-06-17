@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { CommonResponse } from '../security/commonResponse';
 import { Wallet } from '../model/wallet';
 import { WalletAcc } from '../model/wallet-acc';
+import {Constants} from "./Constants";
 
 @Injectable({
   providedIn: 'root'
@@ -12,32 +13,23 @@ export class WalletService {
 
   constructor(private http: HttpClient) { }
 
+  creatWallet(wallet: Wallet): Observable<CommonResponse<Wallet>> {
+    return this.http.post<CommonResponse<Wallet>>(`${Constants.API_BASE_URL}/wallet`, wallet);
+  }
 
-urlcreateWallet = 'http://localhost:9191/wallet';
-urlgetWallet = 'http://localhost:9191/customer/';
+  addWallAcc(wallAcc: WalletAcc): Observable<CommonResponse<WalletAcc>> {
+    return this.http.post<CommonResponse<WalletAcc>>(`${Constants.API_BASE_URL}/wallet-account`, wallAcc);
+  }
 
-urlAddWallAcc = 'http://localhost:9191/wallet-account';
-urlGetWallAcc = 'http://localhost:9191/customer/';
+  getWalllet(cif): Observable<CommonResponse<Wallet[]>> {
+    return this.http.get<CommonResponse<Wallet[]>>(`${Constants.API_BASE_URL}/customer/` + cif + '/wallets');
+  }
 
-urlDelWallAcc = 'http://localhost:9191/wallet-account/';
+  getWallAcc(cif): Observable<CommonResponse<WalletAcc[]>> {
+    return this.http.get<CommonResponse<WalletAcc[]>>(`${Constants.API_BASE_URL}/customer/` + cif + '/wallet-accounts');
+  }
 
-creatWallet(wallet: Wallet) :Observable<CommonResponse<Wallet>>{
-  return this.http.post<CommonResponse<Wallet>>(this.urlcreateWallet, wallet);
-}
-
-addWallAcc(wallAcc: WalletAcc) : Observable<CommonResponse<WalletAcc>>{
-  return this.http.post<CommonResponse<WalletAcc>>(this.urlAddWallAcc, wallAcc);
-}
-
-getWalllet(cif) : Observable<CommonResponse<Wallet[]>>{
-  return this.http.get<CommonResponse<Wallet[]>>(this.urlgetWallet+cif+"/wallets")
-}
-
-getWallAcc(cif) : Observable<CommonResponse<WalletAcc[]>>{
-  return this.http.get<CommonResponse<WalletAcc[]>>(this.urlGetWallAcc+cif+"/wallet-accounts")
-}
-
-deleteWallAcc(id) : Observable<CommonResponse<WalletAcc>>{
-  return this.http.delete<CommonResponse<WalletAcc>>(this.urlDelWallAcc+id);
-}
+  deleteWallAcc(id): Observable<CommonResponse<WalletAcc>> {
+    return this.http.delete<CommonResponse<WalletAcc>>(`${Constants.API_BASE_URL}/wallet-account/` + id);
+  }
 }

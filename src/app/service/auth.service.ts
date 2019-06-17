@@ -12,10 +12,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  urlLogin = 'http://104.248.147.193:9191/login';
-  urlRegister = 'http://104.248.147.193:9191/api/register';
-  urlProfile = 'http://104.248.147.193:9191/api/customer/';
-
 login(login: Customer) : Observable<CommonResponse<Customer>> {
   return this.http.post<CommonResponse<Customer>>(`${Constants.API_BASE_URL}/login`, login);
 }
@@ -28,11 +24,11 @@ login(login: Customer) : Observable<CommonResponse<Customer>> {
 //   }
 
 register(register: Customer): Observable<CommonResponse<Customer>>{
-  return this.http.post<CommonResponse<Customer>>(this.urlRegister, register);
+  return this.http.post<CommonResponse<Customer>>(`${Constants.API_BASE_URL}/register`, register);
 }
 
 profile(cif): Observable<CommonResponse<Customer>>{
-  return this.http.get<CommonResponse<Customer>>(this.urlProfile+cif);
+  return this.http.get<CommonResponse<Customer>>(`${Constants.API_BASE_URL}/` + cif);
 }
 
 }
