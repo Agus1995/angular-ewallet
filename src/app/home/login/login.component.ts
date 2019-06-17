@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         username: ['', Validators.required],
         password: ['', Validators.required],
       }
-    )
+    );
   }
 
   async login() {
@@ -34,12 +34,11 @@ export class LoginComponent implements OnInit {
     this.cus.password = this.formLogin.controls.password.value;
     const response = await this.service.login(this.cus).toPromise();
     if (response.responsecode != 1) {
-      alert(response.responsemessage)
+      alert(response.responsemessage);
     } else {
-      this.router.navigate(['/customer/profile']);
       localStorage.setItem('cif', response.data.cif);
+      this.router.navigate(['/customer/profile']);
     }
-
   }
 
 }
