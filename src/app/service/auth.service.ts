@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Customer } from '../model/customer';
 import { Observable } from 'rxjs';
 import { CommonResponse } from '../security/commonResponse';
+import {Constants} from "./Constants";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthService {
  
 
 login(login: Customer) : Observable<CommonResponse<Customer>>{
-  return this.http.post<CommonResponse<Customer>>(this.urlLogin, login);
+  return this.http.post<CommonResponse<Customer>>(`${Constants.API_BASE_URL}/login`, login);
 }
 
 // isLogin(){
