@@ -24,13 +24,13 @@ export class KursService {
     const params = new HttpParams()
                   .set('ccy1', ccy1)
                   .set('ccy2', ccy2)
-    return this.http.get<CommonResponse<Kurs>>(`${Constants.API_BASE_URL}/tradding/new`, {params});
+    return this.http.get<CommonResponse<Kurs>>(`${Constants.API_BASE_URL}/kurs/new`, {params});
   }
 
   getGraph(ccy1, ccy2): Observable<CommonResponse<Kurs[]>> {
     const params = new HttpParams()
                   .set('ccy1', ccy1)
                   .set('ccy2', ccy2)
-    return this.http.get<CommonResponse<Kurs[]>>(`${Constants.API_BASE_URL}/tradding/graph`, {params});
+    return this.http.get<CommonResponse<Kurs[]>>(`${Constants.API_BASE_URL}/kurs/graph`, {params});
   }
 }

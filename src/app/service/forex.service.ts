@@ -26,6 +26,6 @@ export class ForexService {
   }
 
   getUsd(cif): Observable<CommonResponse<ForexTrading>> {
-    return this.http.get<CommonResponse<ForexTrading>>(`${Constants.API_BASE_URL}/tradding` + cif);
+    return this.http.get<CommonResponse<ForexTrading>>(`${Constants.API_BASE_URL}/tradding/` + cif);
   }
 }

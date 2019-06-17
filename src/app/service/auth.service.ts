@@ -19,7 +19,7 @@ export class AuthService {
     return this.http.post<CommonResponse<Customer>>(`${Constants.API_BASE_URL}/register`, register);
   }
   profile(cif): Observable<CommonResponse<Customer>> {
-    return this.http.get<CommonResponse<Customer>>(`${Constants.API_BASE_URL}/` + cif);
+    return this.http.get<CommonResponse<Customer>>(`${Constants.API_BASE_URL}/customer/` + cif);
   }
 
 }

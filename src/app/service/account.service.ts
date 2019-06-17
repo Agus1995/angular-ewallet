@@ -16,6 +16,6 @@ export class AccountService {
     return this.http.post<CommonResponse<Account>>(`${Constants.API_BASE_URL}/account`, account);
   }
   getAccount(cif): Observable<CommonResponse<Account[]>> {
-    return this.http.get<CommonResponse<Account[]>>(`${Constants.API_BASE_URL}/` + cif + '/accounts');
+    return this.http.get<CommonResponse<Account[]>>(`${Constants.API_BASE_URL}/customer/` + cif + '/accounts');
   }
 }
