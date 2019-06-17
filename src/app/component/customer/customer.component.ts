@@ -29,8 +29,6 @@ export class CustomerComponent implements OnInit {
     if(response.responsecode != 1){
       alert(response.responsemessage)
     } else{
-      console.log("ini cusssss")
-      console.log(response.data)
       this.customers = response.data;
     }
   }

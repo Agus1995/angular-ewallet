@@ -23,8 +23,8 @@
                                 </div>
                                 <div class="userData ml-3">
                                     <h2 class="d-block">{{customers.firstName}} {{customers.lastName}}</h2>
-                                    <h6 class="d-block">Video Uploads</h6>
-                                    <h6 class="d-block">Blog Posts</h6>
+                                    <h6 class="d-block">{{customers.address}}</h6>
+                                    <h6 class="d-block"></h6>
                                 </div>
                                 <div class="ml-auto">
                                     <input type="button" class="btn btn-primary d-none" id="btnDiscard"
@@ -69,7 +69,7 @@
                                                 <label style="font-weight:bold;">Birth Date</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                {{customers.birthDate}}
+                                                {{customers.birthDate | date: 'longDate'}}
                                             </div>
                                         </div>
                                         <hr />
