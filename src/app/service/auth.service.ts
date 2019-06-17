@@ -11,7 +11,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  urlLogin = 'http://104.248.147.193:9191/api/login';
+  urlLogin = 'http://104.248.147.193:9191/login';
   urlRegister = 'http://104.248.147.193:9191/api/register';
   urlProfile = 'http://104.248.147.193:9191/api/customer/';
  
