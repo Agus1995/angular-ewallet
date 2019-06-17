@@ -10,13 +10,17 @@
                 <div class="col-2"></div>
                 <div class="col-8">
                   <form [formGroup]="formTransfer" (ngSubmit)="submitTransfer()">
+                      <div class="form-group">
+                          <label>From Wallet</label>
+                          <select class="custom-select" formControlName="listWallAcc" (change)="getWc($event.target.value)" >
+                            <option selected>Select Wallet</option>
+                            <option *ngFor="let wc of wallAcc" [value]="wc.walletId">{{wc.walletName}}</option>
+                          </select>
+                        </div>
                     <div class="form-group">
-                      <label>Transfer From </label>
+                      <label>Account </label>
                       <select formControlName="accDebit" name="accDebit" class="custom-select">
-                        <option *ngFor="let ac of accounts" [value]="ac.accountNumber" selected>{{ac.name}}
-                          ({{ac.accountNumber}})</option>
-                        <!-- <option value="volvo">Akun 1</option>
-                            <option value="fiat">Akun 2</option> -->
+                          <option *ngFor="let acc of accounts" [value]="acc.account.accountNumber">{{acc.account.name}}</option>
                       </select>
                     </div>
                     <div class="form-group">

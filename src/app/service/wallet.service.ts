@@ -32,4 +32,8 @@ export class WalletService {
   deleteWallAcc(id): Observable<CommonResponse<WalletAcc>> {
     return this.http.delete<CommonResponse<WalletAcc>>(`${Constants.API_BASE_URL}/wallet-account/` + id);
   }
+
+  getAccReg(id): Observable<CommonResponse<WalletAcc[]>>{
+    return this.http.get<CommonResponse<WalletAcc[]>>(`${Constants.API_BASE_URL}/wallet/`+id+`/wallet-accounts`)
+  }
 }

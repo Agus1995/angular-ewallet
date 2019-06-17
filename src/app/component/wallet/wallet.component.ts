@@ -86,6 +86,7 @@ export class WalletComponent implements OnInit {
       alert(response.responsemessage)
     } else {
       alert("success");
+      this.formWallet.reset();
       this.getWallet();
     }
   }
@@ -98,6 +99,7 @@ export class WalletComponent implements OnInit {
       alert(response.responsemessage)
     } else {
       alert("success");
+      this.formWallAcc.reset();
       this.getWallet();
       this.getWallAc();
     }
@@ -117,7 +119,6 @@ export class WalletComponent implements OnInit {
     if (response.responsecode != 1) {
       alert(response.responsemessage)
     } else {
-      console.log(response.data)
       this.wallets = response.data;
     }
   }
@@ -130,7 +131,6 @@ export class WalletComponent implements OnInit {
     if (response.responsecode != 1) {
       alert(response.responsemessage)
     } else {
-      console.log(response.data)
       this.accounts = response.data;
     }
   }
@@ -143,7 +143,6 @@ export class WalletComponent implements OnInit {
     if (response.responsecode != 1) {
       alert(response.responsemessage)
     } else {
-      console.log(response.data);
       this.wallAccList = response.data;
     }
   }

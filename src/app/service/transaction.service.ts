@@ -13,7 +13,7 @@ export class TransactionService {
   constructor(private http: HttpClient) { } 
 
   topUp(trans: Transaction): Observable<CommonResponse<Transaction>>{
-    return this.http.post<CommonResponse<Transaction>>(`${Constants.API_BASE_URL}/transaction`, trans);
+    return this.http.post<CommonResponse<Transaction>>(`${Constants.API_BASE_URL}/transactions`, trans);
   }
 
   getTransaction(accNum): Observable<CommonResponse<Transaction[]>>{
