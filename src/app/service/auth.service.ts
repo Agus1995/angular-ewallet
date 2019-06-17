@@ -15,9 +15,8 @@ export class AuthService {
   urlLogin = 'http://104.248.147.193:9191/login';
   urlRegister = 'http://104.248.147.193:9191/api/register';
   urlProfile = 'http://104.248.147.193:9191/api/customer/';
- 
 
-login(login: Customer) : Observable<CommonResponse<Customer>>{
+login(login: Customer) : Observable<CommonResponse<Customer>> {
   return this.http.post<CommonResponse<Customer>>(`${Constants.API_BASE_URL}/login`, login);
 }
 
