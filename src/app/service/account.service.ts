@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonResponse } from '../security/commonResponse';
 import { Observable } from 'rxjs';
 import { Account } from '../model/account';
+import {Constants} from "./Constants";
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +12,10 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-urlAccount = 'http://localhost:9191/account';
-urlgetAccount = 'http://localhost:9191/customer/';
-
-createAccount(account: Account) :Observable<CommonResponse<Account>>{
-  return this.http.post<CommonResponse<Account>>(this.urlAccount, account);
-}
-
-
-getAccount(cif) :Observable<CommonResponse<Account[]>>{
-  return this.http.get<CommonResponse<Account[]>>(this.urlgetAccount+cif+"/accounts")
-}
+  createAccount(account: Account): Observable<CommonResponse<Account>> {
+    return this.http.post<CommonResponse<Account>>(`${Constants.API_BASE_URL}/account`, account);
+  }
+  getAccount(cif): Observable<CommonResponse<Account[]>> {
+    return this.http.get<CommonResponse<Account[]>>(`${Constants.API_BASE_URL}/customer/` + cif + '/accounts');
+  }
 }

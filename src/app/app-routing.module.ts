@@ -16,7 +16,7 @@ import { ListAccComponent } from './component/list-acc/list-acc.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: "", redirectTo:"customer/profile",pathMatch:"full"},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path:"account", loadChildren: './module/account/account.module#AccountModule', canActivate: [AuthenticationGuardService]},
   {path:'wallet', loadChildren: './module/wallet/wallet.module#WalletModule', canActivate: [AuthenticationGuardService]},
   {path:"forex", loadChildren: './module/forex/forex.module#ForexModule', canActivate: [AuthenticationGuardService]},
@@ -43,4 +43,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
- 
