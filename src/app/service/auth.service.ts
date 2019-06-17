@@ -11,9 +11,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  urlLogin = 'http://localhost:9191/login';
-  urlRegister = 'http://localhost:9191/register';
-  urlProfile = 'http://localhost:9191/customer/';
+  urlLogin = 'http://localhost:9191/api/login';
+  urlRegister = 'http://localhost:9191/api/register';
+  urlProfile = 'http://localhost:9191/api/customer/';
  
 
 login(login: Customer) : Observable<CommonResponse<Customer>>{
