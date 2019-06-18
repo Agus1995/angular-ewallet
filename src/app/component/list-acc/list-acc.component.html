@@ -1,0 +1,4 @@
+<select class="custom-select" (change)="getAcc($event.target.value)">
+    <option value="" disabled>Select Account</option>
+    <option *ngFor="let acc of accounts" [value]="acc.accountNumber">{{acc.name}}</option>
+  </select>

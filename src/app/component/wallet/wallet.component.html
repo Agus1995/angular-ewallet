@@ -41,7 +41,7 @@
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       <button type="button" data-dismiss="modal" class="btn btn-primary"
-                        (click)="createWallet()">Create</button>
+                        (click)="createWallet()" [disabled]="!formWallet.valid">Create</button>
                     </div>
                   </div>
                 </div>
@@ -135,7 +135,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="createWallAcc()">Add
+        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="createWallAcc()" [disabled]="!formWallAcc.valid">Add
           Account</button>
       </div>
     </div>

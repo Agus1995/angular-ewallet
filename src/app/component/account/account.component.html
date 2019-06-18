@@ -57,7 +57,7 @@
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" data-dismiss="modal" class="btn btn-primary"
-                          (click)="createAccount()">Create</button>
+                          (click)="createAccount()" [disabled]="!formAccount.valid">Create</button>
                       </div>
                     </div>
                   </div>

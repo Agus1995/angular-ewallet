@@ -116,7 +116,7 @@ export class ForexComponent implements OnInit {
       alert(response.responsemessage);
     }else{
       alert("success");
-      this.trade = new ForexTrading();
+      this.formBuy.reset();
       this.getUsd();
     }
   }
@@ -133,7 +133,7 @@ export class ForexComponent implements OnInit {
       alert(response.responsemessage);
     }else{
       alert("success");
-      this.trade = new ForexTrading();
+      this.formSell.reset();
       this.getUsd();
     }
   }
