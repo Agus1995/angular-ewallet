@@ -52,7 +52,7 @@ export class AccountComponent implements OnInit {
   }
 
   async createAccount() {
-    this.account.currencyType = this.formAccount.controls.curencyType.value;
+    this.account.currencyType = "IDR";
     this.account.name = this.formAccount.controls["name"].value;
     console.log(this.account);
     const response = await this.service.createAccount(this.account).toPromise();
