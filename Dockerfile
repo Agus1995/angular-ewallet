@@ -27,6 +27,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY primary-nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=node /apps/dist/FinalProject/* /apps/nginx/nginx_root/
+COPY --from=node /apps/dist/FinalProject/assets /apps/nginx/nginx_root/assets
 
 ADD start.sh /root/entrypoint.sh
 RUN ["chmod", "+x", "/root/entrypoint.sh"]
