@@ -71,7 +71,6 @@
                   <th>Account Name</th>
                   <th>Open Date</th>
                   <th>Balance</th>
-                  <th>Curency Type</th>
                 </tr>
               </thead>
 
@@ -80,8 +79,7 @@
                   <td>{{ac.accountNumber}}</td>
                   <td>{{ac.name}}</td>
                   <td>{{ac.updatedAt | date: 'longDate'}}</td>
-                  <td>{{ac.balance |currency:" ":"code"}}</td>
-                  <td>{{ac.curencyType}}</td>
+                  <td>{{ac.balance |currency:"Rp. ":"code"}}</td>
                 </tr>
               </tbody>
             </table>

@@ -5,7 +5,7 @@
               <div class="col-7"></div>
               <div class="col-2"><h6>Select Account :</h6></div>
               <div class="col-2">
-                  <select class="custom-select">
+                  <select class="custom-select" (change)="getRecord($event.target.value)">
                       <option value="" disabled>Select Account</option>
                       <option *ngFor="let acc of accounts" [value]="acc.accountNumber">{{acc.name}}</option>
                     </select>
@@ -16,23 +16,27 @@
             <table class="table table-striped table-dark table-hover">
                 <thead class="thead-dark">
                   <tr>
-                    <th>Account Debit</th>
-                    <th>Account Credit</th>
+                    <th>Currency</th>
+                    <th>Description</th>
+                    <th>Rate</th>
+                    <th>Rest of Money</th>
                     <th>Amount</th>
-                    <th>Transaction Type</th>
+                    <th>Provit/Lost</th>
                     <th>Date</th>
 
                   </tr>
                 </thead>
 
                 <tbody>
-                  <!-- <tr *ngFor="let t of trans">
-                    <td> {{t.accDebet}} </td>
-                    <td> {{t.accCredit}} </td>
-                    <td> {{t.amount}} </td>
-                    <td> {{t.transactionTypeDto}} </td>
-                    <td> {{t.date}} </td>
-                  </tr> -->
+                  <tr *ngFor="let rec of record">
+                    <td> {{rec.ccy}} </td>
+                    <td> {{rec.description}} </td>
+                    <td> {{rec.rate}} </td>
+                    <td> {{rec.restOfMoney}} </td>
+                    <td> {{rec.amount}} </td>
+                    <td> {{rec.provitLost}} </td>
+                    <td> {{rec.date}} </td>
+                  </tr>
                 </tbody>
               </table>
       </div>

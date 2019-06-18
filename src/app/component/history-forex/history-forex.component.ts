@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/service/account.service';
 import { Account } from 'src/app/model/account';
+import { ForexTrading } from 'src/app/model/forex-trading';
+import { ForexService } from 'src/app/service/forex.service';
 
 @Component({
   selector: 'app-history-forex',
@@ -9,7 +11,7 @@ import { Account } from 'src/app/model/account';
 })
 export class HistoryForexComponent implements OnInit {
 
-  constructor(private serviceAcc: AccountService) { }
+  constructor(private serviceAcc: AccountService, private serviceFx: ForexService) { }
 
   accounts: Account[] = [];
 
@@ -26,6 +28,13 @@ export class HistoryForexComponent implements OnInit {
     } else{
       this.accounts= response.data;
     }
+  }
+
+  record: ForexTrading[] = [];
+  async getRecord(acc){
+    const response = await this.serviceFx.getRecord(acc).toPromise();
+    this.record = response.data;
+    console.log(this.record)
   }
 
 }
