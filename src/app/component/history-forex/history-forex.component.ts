@@ -16,10 +16,9 @@ export class HistoryForexComponent implements OnInit {
   accounts: Account[] = [];
 
   ngOnInit() {
-    this.getAccounts();
+    this.getRecord();
   }
  
-
   async getAccounts(){
     let cif = localStorage.getItem('cif');
     const response = await this.serviceAcc.getAccount(cif).toPromise();
@@ -31,8 +30,9 @@ export class HistoryForexComponent implements OnInit {
   }
 
   record: ForexTrading[] = [];
-  async getRecord(acc){
-    const response = await this.serviceFx.getRecord(acc).toPromise();
+  async getRecord(){
+    let cif = localStorage.getItem('cif');
+    const response = await this.serviceFx.getRecord(cif).toPromise();
     this.record = response.data;
     console.log(this.record)
   }

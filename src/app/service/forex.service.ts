@@ -21,8 +21,8 @@ export class ForexService {
     return this.http.post<CommonResponse<ForexTrading>>(`${Constants.API_BASE_URL}/sell`, forex);
   }
 
-  getRecord(acc): Observable<CommonResponse<ForexTrading[]>> {
-    return this.http.get<CommonResponse<ForexTrading[]>>(`${Constants.API_BASE_URL}/report` + acc);
+  getRecord(cif): Observable<CommonResponse<ForexTrading[]>> {
+    return this.http.get<CommonResponse<ForexTrading[]>>(`${Constants.API_BASE_URL}/report/` + cif);
   }
 
   getUsd(cif): Observable<CommonResponse<ForexTrading>> {
