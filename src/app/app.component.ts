@@ -10,7 +10,7 @@ export class AppComponent implements OnInit, AfterContentChecked, AfterViewCheck
 
   constructor(){}
   id: string;
-
+  isLogin: boolean;
   home = false;
 
   ngAfterContentChecked(): void {
