@@ -3,7 +3,7 @@
       <div class="content">
           <div class="row">
               <div class="col-7"></div>
-              <div class="col-2"><h6>Select Account :</h6></div>
+              <div class="col-2"><h6></h6></div>
               <div class="col-2"></div>
               <div class="col-1"></div>
             </div>
@@ -26,10 +26,10 @@
                   <tr *ngFor="let rec of record">
                     <td> {{rec.ccy}} </td>
                     <td> {{rec.description}} </td>
-                    <td> {{rec.rate}} </td>
-                    <td> {{rec.restOfMoney}} </td>
-                    <td> {{rec.amount}} </td>
-                    <td> {{rec.provitLost}} </td>
+                    <td> {{rec.rate | currency:"Rp.":"code"}} </td>
+                    <td> {{rec.restOfMoney | currency:"$":"code"}} </td>
+                    <td> {{rec.amount | currency:"$":"code"}} </td>
+                    <td> {{rec.provitLost | currency:"Rp.":"code"}} </td>
                     <td> {{rec.date}} </td>
                   </tr>
                 </tbody>
