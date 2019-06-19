@@ -30,7 +30,7 @@
                     <td> {{rec.restOfMoney | currency:"$":"code"}} </td>
                     <td> {{rec.amount | currency:"$":"code"}} </td>
                     <td> {{rec.provitLost | currency:"Rp.":"code"}} </td>
-                    <td> {{rec.date}} </td>
+                    <td> {{rec.date | date: 'longDate'}} </td>
                   </tr>
                 </tbody>
               </table>
