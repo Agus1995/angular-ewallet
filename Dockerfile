@@ -12,6 +12,7 @@ RUN npm install
 
 COPY . .
 
+RUN npm install -g sonarqube-scanner && sonar-scanner
 RUN npm run build -- --prod
 
 ###
