@@ -1,16 +1,56 @@
 <!-- tampilan setelah login -->
-    <div *ngIf="id">
-        <div class="row">
-            <div class="col-2">
-                <app-sidebar></app-sidebar>
-            </div>
-            <div class="col-10">
-                <app-navbar></app-navbar>
-                <router-outlet></router-outlet>
-            </div>
+<div *ngIf="id">
+    <div class="row">
+        <div class="col-2">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-10">
+            <app-navbar></app-navbar>
+            <router-outlet></router-outlet>
         </div>
     </div>
+</div>
 <!-- tampilan awal login -->
 <div *ngIf="!id">
-    <router-outlet></router-outlet>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" (click)="scroll(home)">Dashboard</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <em class="fas fa-bars"></em>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" (click)="scroll(about)">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" (click)="scroll(service)">Benefits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" (click)="scroll(programs)">Program's</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" (click)="scroll(team)">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" (click)="scroll(register)">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" (click)="scroll(login)">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav><br>
+    <div #home><br><br><br><app-home></app-home></div>
+    <div #login><br><br><br><app-login></app-login></div>
+    <div #register><br><br><br><app-register></app-register></div>
+    <div #service><br><br><br><app-service></app-service></div>
+    <div #programs><br><br><br><app-programs></app-programs></div>
+    <div #team><br><br><br><app-team></app-team></div>
+    <div #about><br><br><br><app-about></app-about></div>
 </div>

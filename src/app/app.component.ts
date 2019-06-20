@@ -13,6 +13,10 @@ export class AppComponent implements OnInit, AfterContentChecked, AfterViewCheck
   isLogin: boolean;
   home = false;
 
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
+  
   ngAfterContentChecked(): void {
     this.id = localStorage.getItem('cif');
   }
