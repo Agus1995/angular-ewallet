@@ -19,7 +19,7 @@
                             <div class="forgot">
                                 <a href="reset.html">Forgot password?</a>
                             </div>
-                            <input type="submit" class="btn btn-primary" value="Login"/>
+                            <input type="submit" class="btn btn-primary" value="Login" [disabled]="!formLogin.valid"/>
                         </form>
                     </div>
                 </div>
