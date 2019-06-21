@@ -17,7 +17,7 @@ export class ListAccComponent implements OnInit {
   ngOnInit() {
     this.getAccounts();
   }
-
+ 
   @Input()
   receiveAcc: string;
 

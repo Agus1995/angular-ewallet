@@ -7,13 +7,15 @@ import { HistoryForexComponent } from 'src/app/component/history-forex/history-f
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 import { ChartExComponent } from 'src/app/component/chart-ex/chart-ex.component';
+import { ReportForexComponent } from 'src/app/component/report-forex/report-forex.component';
 
 
 @NgModule({
   declarations: [
     ForexComponent,
     ChartExComponent,
-    HistoryForexComponent
+    HistoryForexComponent,
+    ReportForexComponent
   ],
   imports: [
     CommonModule,

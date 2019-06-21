@@ -11,7 +11,10 @@
               <form [formGroup]="formTrans" (ngSubmit)="createTopUp()">
                 <div class="form-group">
                   <label>Top-Up From </label>
-                  <input class="form-control" formControlName="accFrom">
+                  <select class="custom-select" formControlName="accFrom" (change)="getAcc($event.target.value)" >
+                    <option selected>Select Account</option>
+                    <option *ngFor="let act of accounts2" [value]="act.accountNumber">{{act.name}}</option>
+                  </select>
                 </div>
                 <div class="form-group">
                     <label>Recipient's Wallet</label>

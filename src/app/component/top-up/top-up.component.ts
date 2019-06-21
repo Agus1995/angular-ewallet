@@ -19,14 +19,17 @@ export class TopUpComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private serviceTrans: TransactionService,
-              private serviceWall: WalletService) { }
+              private serviceWall: WalletService,
+              private serviceAcc: AccountService) { }
 
   cif = localStorage.getItem('cif');
   formTrans: FormGroup;
   cus: Customer = new Customer();
   accounts: WalletAcc[] = [];
+  accounts2: Account[] = [];
 
   ngOnInit() {
+    this.getAccounts();
     this.getWallReg();
     this.formTrans = this.fb.group({
       accFrom: ['', Validators.required],
@@ -91,7 +94,20 @@ export class TopUpComponent implements OnInit {
       alert(response.responsemessage);
     }else{
       this.accounts = response.data;
-      console.log(this.wallAcc);
+      
     }
+  }
+
+  async getAccounts(){
+    if (this.cif == undefined) {
+      this.cif = localStorage.getItem('cif');
+    }
+    const response = await this.serviceAcc.getAccount(this.cif).toPromise();
+    this.accounts2 = response.data;
+    console.log(this.accounts2);
+  }
+
+  getAcc(acc){
+    console.log(acc);
   }
 }
